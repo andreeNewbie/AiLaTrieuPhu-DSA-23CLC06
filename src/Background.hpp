@@ -4,8 +4,9 @@
 class Background
 {
     public:
-        Background(const char * imagePath, Vector2 position, float scale);
+        Background();
         ~Background();
+        void loadInfo(const char * imagePath, Vector2 position, float scale);
         void Draw();
         void remove();
     private:

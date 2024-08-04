@@ -4,7 +4,8 @@
 class Button
 {
     public:
-        Button(const char *imagePath, Vector2 position, float scale);
+        Button();
+        void loadInfo(const char *imagePath, Vector2 position, float scale);
         ~Button();
         void Draw();
         void remove();

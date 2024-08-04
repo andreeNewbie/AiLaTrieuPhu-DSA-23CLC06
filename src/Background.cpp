@@ -1,6 +1,12 @@
 #include "Background.hpp"
 
-Background::Background(const char * imagePath, Vector2 imagePosition, float scale)
+
+Background::Background()
+{
+
+}
+
+void Background::loadInfo(const char * imagePath, Vector2 imagePosition, float scale)
 {
     Image image = LoadImage(imagePath);
 

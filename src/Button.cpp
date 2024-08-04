@@ -1,6 +1,11 @@
 #include "Button.hpp"
 
-Button::Button(const char * imagePath, Vector2 imagePosition, float scale)
+Button::Button()
+{
+
+}
+
+void Button::loadInfo(const char * imagePath, Vector2 imagePosition, float scale)
 {
     Image image = LoadImage(imagePath);
 
