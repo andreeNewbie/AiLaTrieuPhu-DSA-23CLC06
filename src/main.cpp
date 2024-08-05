@@ -15,14 +15,14 @@ int main()
 
     PlayGame game = PlayGame();
     
-    while(!WindowShouldClose())
+    while(!WindowShouldClose() && !game.exit)
     {   
         if (game.gameStarted == false)
         {
             game.StartGame();
             UpdateMusicStream(game.musicStart);
         }
-        else
+        else if (game.correct)
         {
             game.RunGame();
             UpdateMusicStream(game.musicOngame);

@@ -6,7 +6,8 @@ PlayGame::PlayGame()
     background.loadInfo("resources/graphics/background.png", {-221.25, -450}, 0.6);
     logo.loadInfo("resources/graphics/logo.png", {278.7778, 50}, 0.7858);
     startButton.loadInfo("resources/graphics/start-button-login.png", {549.45, 580}, 0.3);
-    
+    exitButton.loadInfo("resources/graphics/exit-button.png", {1295, 0}, 0.25);
+
     game_background1.loadInfo("resources/graphics/background-gradient.png", {0, 0}, 0.7);
     game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
 
@@ -14,21 +15,47 @@ PlayGame::PlayGame()
     help_5050.loadInfo("resources/graphics/lifeline-50.png", {1120, 720}, 0.482);
     help_askAudience.loadInfo("resources/graphics/lifeline-ask-the-audience.png", {1120, 810}, 0.482);
 
+    help_phoneFriend_used.loadInfo("resources/graphics/lifeline-phone-a-friend-orange.png", {1120, 630}, 0.482);
+    help_5050_used.loadInfo("resources/graphics/lifeline-50-orange.png", {1120, 720}, 0.482);
+    help_askAudience_used.loadInfo("resources/graphics/lifeline-ask-the-audience-orange.png", {1120, 810}, 0.482);
+
     font = LoadFontEx("resources/fonts/OpenSans-Bold.ttf", 64, 0, 0);
 
     A.loadInfo("resources/graphics/last-question.png", {10, 720}, 0.25);
-    B.loadInfo("resources/graphics/last-question.png", {520, 720}, 0.25);
+    B.loadInfo("resources/graphics/last-question.png", {525, 720}, 0.25);
     C.loadInfo("resources/graphics/last-question.png", {10, 800}, 0.25);
-    D.loadInfo("resources/graphics/last-question.png", {520, 800}, 0.25);
+    D.loadInfo("resources/graphics/last-question.png", {525, 800}, 0.25);
+
+    A_wrong.loadInfo("resources/graphics/incorrect-answer.png", {-40, 722}, 0.4);
+    B_wrong.loadInfo("resources/graphics/incorrect-answer.png", {470, 723}, 0.4);
+    C_wrong.loadInfo("resources/graphics/incorrect-answer.png", {-40, 800}, 0.4);
+    D_wrong.loadInfo("resources/graphics/incorrect-answer.png", {470, 802}, 0.4);
+
+    A_right.loadInfo("resources/graphics/correct-answer.png", {-40, 722}, 0.4);
+    B_right.loadInfo("resources/graphics/correct-answer.png", {480, 722}, 0.4);
+    C_right.loadInfo("resources/graphics/correct-answer.png", {-40, 800}, 0.4);
+    D_right.loadInfo("resources/graphics/correct-answer.png", {480, 800}, 0.4);
+
     ScreenQuestion.loadInfo("resources/graphics/last-question.png", {10, 583}, 0.51);
 
     gameStarted = false;
+    correct = true;
+    exit = false;
+    printA = printB = printC = printD = true;
+
     question = Question();
-    ques = question.RandomDrawbyRequireLevel(1);
+    countQuestionCorrected = 1;
+    handle = 0;
 
     InitAudioDevice();
     musicStart = LoadMusicStream("resources/sounds/StartGame.mp3");
     musicOngame = LoadMusicStream("resources/sounds/music01.mp3");
+    correctAns = LoadSound("resources/sounds/correctAnswer1.mp3");
+    correctTarget = LoadSound("resources/sounds/correctAnswer2.mp3");
+    incorrect = LoadSound("resources/sounds/incorrectAnswer.mp3");
+    newQuestion = LoadSound("resources/sounds/newQuestion.mp3");
+    selectAnswer = LoadSound("resources/sounds/selectAnswer.mp3");
+    win = LoadSound("resources/sounds/Winning.mp3");
 }
 
 void PlayGame::StartGame()
@@ -39,6 +66,7 @@ void PlayGame::StartGame()
     background.Draw();
     logo.Draw();
     startButton.Draw();
+    exitButton.Draw();
     EndDrawing();
     
     Vector2 mousePosition = GetMousePosition();
@@ -46,10 +74,12 @@ void PlayGame::StartGame()
 
     if (startButton.isPress(mousePosition, mousePressed))
         gameStarted = true;
+    if(exitButton.isPress(mousePosition, mousePressed))
+        exit = true;
 
 }
 
-void PlayGame::RunGame()
+void PlayGame::Handle()
 {
     PlayMusicStream(musicOngame);
     BeginDrawing();
@@ -77,10 +107,20 @@ void PlayGame::RunGame()
     help_askAudience.Draw();
 
     DrawTextEx(font, ques.question, {100, 632}, 35, 2, WHITE);
-    DrawTextEx(font,ques.A, {75, 733}, 35, 2, WHITE);
-    DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
-    DrawTextEx(font,ques.C, {75, 815}, 35, 2, WHITE);
-    DrawTextEx(font,ques.D, {580, 815}, 35, 2, WHITE);
+    if(printA)
+        DrawTextEx(font,ques.A, {75, 733}, 35, 2, WHITE);
+    if(printB)
+        DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
+    if(printC)
+        DrawTextEx(font,ques.C, {75, 815}, 35, 2, WHITE);
+    if(printD)
+        DrawTextEx(font,ques.D, {580, 815}, 35, 2, WHITE);
 
     EndDrawing();
+}
+
+void PlayGame::RunGame()
+{
+    ques = question.RandomDrawbyRequireLevel(1);
+    Handle();
 }

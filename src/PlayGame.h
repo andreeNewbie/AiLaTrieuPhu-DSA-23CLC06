@@ -13,29 +13,35 @@ class PlayGame
         //~PlayGame();
         void StartGame();
         void RunGame();
-        //void upDate();
+        void Handle();
         bool gameStarted;
+        bool correct;
+        bool exit;
         Music musicStart;
         Music musicOngame;
     private:
+        int countQuestionCorrected;
+        int handle;
+        Sound correctAns, correctTarget, incorrect;
+        Sound newQuestion, selectAnswer, win;
         Background background;
         Background logo;
-        Button startButton;
+        Button startButton, exitButton;
 
-        Background game_background1;
-        Background game_background2;
+        Background game_background1, game_background2;
         
-        Background help_phoneFriend;
-        Background help_5050;
-        Background help_askAudience;
-        
+        Button help_phoneFriend, help_5050, help_askAudience;
+        Button help_phoneFriend_used, help_5050_used, help_askAudience_used;
         Font font;
 
-        Button A;
-        Button B;
-        Button C;
-        Button D;
+        Button A, B, C, D;
+        Button A_wrong, B_wrong, C_wrong, D_wrong;
+        Button A_right, B_right, C_right, D_right;
+
         Background ScreenQuestion;
         Question question;
         Question::Option ques;
+
+        bool printA, printB, printC, printD;
+        bool phoneFriend_used, help5050_used, askAudience_used;
 };
