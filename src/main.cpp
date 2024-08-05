@@ -22,12 +22,13 @@ int main()
             game.StartGame();
             UpdateMusicStream(game.musicStart);
         }
-        else if (game.correct)
+        else 
         {
             game.RunGame();
             UpdateMusicStream(game.musicOngame);
         }
     }
+
     CloseWindow();
     return 0;
 }
