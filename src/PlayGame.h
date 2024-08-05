@@ -46,7 +46,7 @@ class PlayGame
 
         Background ScreenQuestion;
         Question question;
-        Question::Option* ques;
+        Question::Option ques;
 
         bool printA, printB, printC, printD;
         bool pressA, pressB, pressC, pressD;
