@@ -1,5 +1,5 @@
 #pragma once
-#include "C:\raylib\raylib\src\raylib.h"
+#include "/Users/huynick/Documents/raylib/src/raylib.h"
 
 class Button
 {

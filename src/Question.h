@@ -1,6 +1,6 @@
 #pragma once
 #include<vector>
-#include "C:\raylib\raylib\src\raylib.h"
+#include "/Users/huynick/Documents/raylib/src/raylib.h"
 #include <string>
 #include <cstring>
 
@@ -21,5 +21,5 @@ class Question
         Question();
         Option RandomDrawbyRequireLevel(int level);
     private:
-        vector<vector<Option*>> QuestionBank;
+        vector<vector<Option*> > QuestionBank;
 };

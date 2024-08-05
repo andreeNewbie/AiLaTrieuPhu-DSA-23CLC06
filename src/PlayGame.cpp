@@ -1,5 +1,9 @@
 #include "PlayGame.h"
+#include <iostream>
+#include <thread>
+#include <chrono>
 
+using namespace std;
 
 PlayGame::PlayGame()
 {
@@ -52,6 +56,11 @@ PlayGame::PlayGame()
     countQuestionCorrected = 0;
     ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
 
+    if (!ques) {
+        std::cerr << "Error: Initial question load failed!" << std::endl;
+        exit = true;
+    }
+
     InitAudioDevice();
     musicStart = LoadMusicStream("resources/sounds/StartGame.mp3");
     musicOngame = LoadMusicStream("resources/sounds/music01.mp3");
@@ -81,9 +90,7 @@ void PlayGame::StartGame()
         gameStarted = true;
     if(exitButton.isPress(mousePosition, mousePressed))
         exit = true;
-
 }
-
 
 void PlayGame::Display()
 {
@@ -114,8 +121,8 @@ void PlayGame::Display()
 
     if (countQuestionCorrected == 5)
         DrawTextEx(font, " 5. $30.000", {1120, 310}, 38, 2, BLACK);
-    DrawTextEx(font, " 5. $30.000", {1120, 310}, 38, 2, ORANGE);
-    
+    else DrawTextEx(font, " 5. $30.000", {1120, 310}, 38, 2, ORANGE);
+
     DrawTextEx(font, " 4. $10.000", {1120, 370}, 38, 2, WHITE);
 
     if (countQuestionCorrected == 3)
@@ -130,7 +137,7 @@ void PlayGame::Display()
         DrawTextEx(font, " 1. $500", {1120, 550}, 38, 2, BLACK);
     else DrawTextEx(font, " 1. $500", {1120, 550}, 38, 2, ORANGE);
 
-    DrawTextEx(font, ques.question, {100, 632}, 35, 2, WHITE);
+    DrawTextEx(font, ques->question, {100, 632}, 35, 2, WHITE);
 }
 
 void PlayGame::Handle()
@@ -144,7 +151,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.A, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->A, ques->correctAnswer) == 0)
             A_right.Draw();
         else
             A.Draw();
@@ -159,7 +166,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.B, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->B, ques->correctAnswer) == 0)
             B_right.Draw();
         else
             B.Draw();
@@ -174,7 +181,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.C, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->C, ques->correctAnswer) == 0)
             C_right.Draw();
         else
             C.Draw();
@@ -189,7 +196,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.D, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->D, ques->correctAnswer) == 0)
             D_right.Draw();
         else
             D.Draw();
@@ -197,13 +204,13 @@ void PlayGame::Handle()
 
 
     if(printA)
-        DrawTextEx(font,ques.A, {75, 733}, 35, 2, WHITE);
+        DrawTextEx(font,ques->A, {75, 733}, 35, 2, WHITE);
     if(printB)
-        DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
+        DrawTextEx(font,ques->B, {580, 733}, 35, 2, WHITE);
     if(printC)
-        DrawTextEx(font,ques.C, {75, 815}, 35, 2, WHITE);
+        DrawTextEx(font,ques->C, {75, 815}, 35, 2, WHITE);
     if(printD)
-        DrawTextEx(font,ques.D, {580, 815}, 35, 2, WHITE);
+        DrawTextEx(font,ques->D, {580, 815}, 35, 2, WHITE);
 
     if (!phoneFriend_used)
         help_phoneFriend.Draw();
@@ -222,43 +229,43 @@ void PlayGame::Handle()
 void PlayGame::CheckAnswer()
 {
     correct = 3;
-    if (pressA && strcmp(ques.A, ques.correctAnswer) == 0)
+    if (pressA && strcmp(ques->A, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
-    if (pressB && strcmp(ques.B, ques.correctAnswer) == 0)
+    if (pressB && strcmp(ques->B, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
-    if (pressC && strcmp(ques.C, ques.correctAnswer) == 0)
+    if (pressC && strcmp(ques->C, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
-    if (pressD && strcmp(ques.D, ques.correctAnswer) == 0)
+    if (pressD && strcmp(ques->D, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
 
-    if (correct == 3)
-        PlaySound(incorrect);
-    if (correct == 2)
-    {
-        if (countQuestionCorrected == 4 || countQuestionCorrected == 7)
-            PlaySound(correctTarget);
-        if (countQuestionCorrected == 10)
-            PlaySound(win);
-        else
-            PlaySound(correctAns);
+        if (correct == 3)
+            PlaySound(incorrect);
+        if (correct == 2)
+        {
+            if (countQuestionCorrected == 4 || countQuestionCorrected == 7)
+                PlaySound(correctTarget);
+            if (countQuestionCorrected == 10)
+                PlaySound(win);
+            else
+                PlaySound(correctAns);
+        }
     }
-
 }
 
 void waitAndExecute(int k) {
-    this_thread::sleep_for(chrono::seconds(k));
+    std::this_thread::sleep_for(std::chrono::seconds(k));
 }
 
 void PlayGame::RunGame()
@@ -274,6 +281,11 @@ void PlayGame::RunGame()
     {
         waitAndExecute(3);
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
+        if (!ques) {
+            std::cerr << "Error: ques is null!" << std::endl;
+            exit = true;
+            return;
+        }
         correct = 1;
         pressA = pressB = pressC = pressD = false;
     }
@@ -291,6 +303,11 @@ void PlayGame::RunGame()
 
         countQuestionCorrected = 0;
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
+        if (!ques) {
+            std::cerr << "Error: ques is null!" << std::endl;
+            exit = true;
+            return;
+        }
     }
 
     if ((pressA || pressB || pressC || pressD) && !check)
