@@ -12,7 +12,7 @@ Question::Option Question::RandomDrawbyRequireLevel(int level)
     Question::Option res;
     string a = "Ngo Hong Thanh co bi ngu khong ?";
     strcpy(res.question, a.c_str());
-    string ans = "Co";
+    string ans = "A. Co";
     strcpy(res.A, ans.c_str());
     strcpy(res.B, ans.c_str());
     strcpy(res.C, ans.c_str());

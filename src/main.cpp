@@ -18,9 +18,15 @@ int main()
     while(!WindowShouldClose())
     {   
         if (game.gameStarted == false)
+        {
             game.StartGame();
+            UpdateMusicStream(game.musicStart);
+        }
         else
+        {
             game.RunGame();
+            UpdateMusicStream(game.musicOngame);
+        }
     }
     CloseWindow();
     return 0;

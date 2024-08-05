@@ -10,10 +10,13 @@ class PlayGame
 {
     public:
         PlayGame();
+        //~PlayGame();
         void StartGame();
         void RunGame();
-        void upDate();
+        //void upDate();
         bool gameStarted;
+        Music musicStart;
+        Music musicOngame;
     private:
         Background background;
         Background logo;

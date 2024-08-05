@@ -25,10 +25,15 @@ PlayGame::PlayGame()
     gameStarted = false;
     question = Question();
     ques = question.RandomDrawbyRequireLevel(1);
+
+    InitAudioDevice();
+    musicStart = LoadMusicStream("resources/sounds/StartGame.mp3");
+    musicOngame = LoadMusicStream("resources/sounds/music01.mp3");
 }
 
-void PlayGame::StartGame(){
-
+void PlayGame::StartGame()
+{
+    PlayMusicStream(musicStart);
     BeginDrawing();
     ClearBackground(BLACK);
     background.Draw();
@@ -46,6 +51,7 @@ void PlayGame::StartGame(){
 
 void PlayGame::RunGame()
 {
+    PlayMusicStream(musicOngame);
     BeginDrawing();
     ClearBackground(BLACK);
     game_background1.Draw();
@@ -71,6 +77,10 @@ void PlayGame::RunGame()
     help_askAudience.Draw();
 
     DrawTextEx(font, ques.question, {100, 632}, 35, 2, WHITE);
+    DrawTextEx(font,ques.A, {75, 733}, 35, 2, WHITE);
+    DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
+    DrawTextEx(font,ques.C, {75, 815}, 35, 2, WHITE);
+    DrawTextEx(font,ques.D, {580, 815}, 35, 2, WHITE);
 
     EndDrawing();
 }
