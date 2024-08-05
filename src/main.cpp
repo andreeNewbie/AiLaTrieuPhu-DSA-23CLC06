@@ -1,12 +1,4 @@
-#include "C:\\raylib\\raylib\\src\\raylib.h"
-#include<iostream>
-#include<vector>
-#include<cstring>
-#include<string>
-#include "Button.hpp"
-#include "Background.hpp"
 #include "PlayGame.h"
-using namespace std;
 
 int main() 
 {
@@ -28,7 +20,6 @@ int main()
             UpdateMusicStream(game.musicOngame);
         }
     }
-
     CloseWindow();
     return 0;
 }
