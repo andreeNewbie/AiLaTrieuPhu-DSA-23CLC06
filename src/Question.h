@@ -19,7 +19,7 @@ class Question
             char correctAnswer[50];
         };
         Question();
-        Option RandomDrawbyRequireLevel(int level);
+        Option* RandomDrawbyRequireLevel(int level);
     private:
         vector<vector<Option*>> QuestionBank;
 };

@@ -130,7 +130,7 @@ void PlayGame::Display()
         DrawTextEx(font, " 1. $500", {1120, 550}, 38, 2, BLACK);
     else DrawTextEx(font, " 1. $500", {1120, 550}, 38, 2, ORANGE);
 
-    DrawTextEx(font, ques.question, {100, 632}, 35, 2, WHITE);
+    DrawTextEx(font, ques->question, {100, 632}, 35, 2, WHITE);
 }
 
 void PlayGame::Handle()
@@ -144,7 +144,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.A, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->A, ques->correctAnswer) == 0)
             A_right.Draw();
         else
             A.Draw();
@@ -159,7 +159,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.B, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->B, ques->correctAnswer) == 0)
             B_right.Draw();
         else
             B.Draw();
@@ -174,7 +174,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.C, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->C, ques->correctAnswer) == 0)
             C_right.Draw();
         else
             C.Draw();
@@ -189,7 +189,7 @@ void PlayGame::Handle()
     }
     else
     {
-        if (correct == 3 && strcmp(ques.D, ques.correctAnswer) == 0)
+        if (correct == 3 && strcmp(ques->D, ques->correctAnswer) == 0)
             D_right.Draw();
         else
             D.Draw();
@@ -197,13 +197,13 @@ void PlayGame::Handle()
 
 
     if(printA)
-        DrawTextEx(font,ques.A, {75, 733}, 35, 2, WHITE);
+        DrawTextEx(font,ques->A, {75, 733}, 35, 2, WHITE);
     if(printB)
-        DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
+        DrawTextEx(font,ques->B, {580, 733}, 35, 2, WHITE);
     if(printC)
-        DrawTextEx(font,ques.C, {75, 815}, 35, 2, WHITE);
+        DrawTextEx(font,ques->C, {75, 815}, 35, 2, WHITE);
     if(printD)
-        DrawTextEx(font,ques.D, {580, 815}, 35, 2, WHITE);
+        DrawTextEx(font,ques->D, {580, 815}, 35, 2, WHITE);
 
     if (!phoneFriend_used)
         help_phoneFriend.Draw();
@@ -222,22 +222,22 @@ void PlayGame::Handle()
 void PlayGame::CheckAnswer()
 {
     correct = 3;
-    if (pressA && strcmp(ques.A, ques.correctAnswer) == 0)
+    if (pressA && strcmp(ques->A, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
-    if (pressB && strcmp(ques.B, ques.correctAnswer) == 0)
+    if (pressB && strcmp(ques->B, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
-    if (pressC && strcmp(ques.C, ques.correctAnswer) == 0)
+    if (pressC && strcmp(ques->C, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
     }
-    if (pressD && strcmp(ques.D, ques.correctAnswer) == 0)
+    if (pressD && strcmp(ques->D, ques->correctAnswer) == 0)
     {
         correct = 2;
         countQuestionCorrected++;
