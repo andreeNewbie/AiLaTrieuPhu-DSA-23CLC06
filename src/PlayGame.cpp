@@ -10,7 +10,7 @@ PlayGame::PlayGame()
 
     game_background1.loadInfo("resources/graphics/background-gradient.png", {0, 0}, 0.7);
     game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
-    money.loadInfo("resources/graphics/money-tree.png", {1120, 550}, 0.3);
+    money.loadInfo("resources/graphics/money-tree.png", {1115, 545}, 0.4);
 
     help_phoneFriend.loadInfo("resources/graphics/lifeline-phone-a-friend.png", {1120, 630}, 0.482);
     help_5050.loadInfo("resources/graphics/lifeline-50.png", {1120, 720}, 0.482);
@@ -81,13 +81,16 @@ void PlayGame::StartGame()
         gameStarted = true;
     if(exitButton.isPress(mousePosition, mousePressed))
         exit = true;
-
 }
 
 
 void PlayGame::Display()
 {
-    PlayMusicStream(musicOngame);
+    if (countQuestionCorrected < 10)
+        PlayMusicStream(musicOngame);
+    else
+        StopMusicStream(musicOngame);
+
     ClearBackground(BLACK);
     game_background1.Draw();
     game_background2.Draw();
@@ -247,36 +250,48 @@ void PlayGame::CheckAnswer()
         PlaySound(incorrect);
     if (correct == 2)
     {
-        if (countQuestionCorrected == 4 || countQuestionCorrected == 7)
+        PlaySound(correctAns);
+        waitAndExecute(0.5);
+        if (countQuestionCorrected == 4)
+        {
+            musicOngame = LoadMusicStream("resources/sounds/music02.mp3");
             PlaySound(correctTarget);
+        }
+        if (countQuestionCorrected == 7)
+        {
+            musicOngame = LoadMusicStream("resources/sounds/music03.mp3");
+            PlaySound(correctTarget);
+        }
         if (countQuestionCorrected == 10)
+        {
             PlaySound(win);
-        else
-            PlaySound(correctAns);
+            game_background2.loadInfo("resources/graphics/winner-background.png", {0, 0}, 0.45);
+        }
     }
-
 }
 
-void waitAndExecute(int k) {
+void PlayGame::waitAndExecute(int k) {
     this_thread::sleep_for(chrono::seconds(k));
 }
 
 void PlayGame::RunGame()
 {
     if (correct == 2)
-        money.loadInfo("resources/graphics/money-tree.png", {1120, 550 - float(60 * countQuestionCorrected - 60)}, 0.3);
+        money.loadInfo("resources/graphics/money-tree.png", {1115, 545 - float(60 * countQuestionCorrected - 60)}, 0.4);
+    
     BeginDrawing();
     Display();
     Handle();
     EndDrawing();
-    
-    if (correct == 2)
+
+    if (correct == 2 && countQuestionCorrected < 10)
     {
         waitAndExecute(3);
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
-        correct = 1;
         pressA = pressB = pressC = pressD = false;
     }
+
+    if (correct == 2) correct = 1; 
     if (correct == 3)
     {
         waitAndExecute(7);
@@ -291,6 +306,7 @@ void PlayGame::RunGame()
 
         countQuestionCorrected = 0;
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
+        musicStart = LoadMusicStream("resources/sounds/Winning1.mp3");
     }
 
     if ((pressA || pressB || pressC || pressD) && !check)
@@ -327,3 +343,4 @@ void PlayGame::RunGame()
         pressD = true;
     }
 }
+

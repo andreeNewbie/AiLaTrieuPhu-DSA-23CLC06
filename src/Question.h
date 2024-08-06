@@ -3,6 +3,11 @@
 #include "C:\raylib\raylib\src\raylib.h"
 #include <string>
 #include <cstring>
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <ctime>
+#include <iostream>
 
 using namespace std;
 

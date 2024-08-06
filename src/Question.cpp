@@ -9,7 +9,7 @@ Question::Question() // Read file and store to QuestionBank
 {
     QuestionBank.resize(10); // Chỉnh sửa kích thước của QuestionBank để phù hợp với 10 mức độ khó
     for (int index = 0; index < 10; index++) {
-        string questionFileName = "D:\\2023-2024\\HK3\\DSA\\Project\\AiLaTrieuPhu-DSA-23CLC06\\resources\\questions\\question" + to_string(index + 1) + ".csv";
+        string questionFileName = "resources\\questions\\question" + to_string(index + 1) + ".csv";
         ifstream inputQuestion(questionFileName);
         if (!inputQuestion.is_open()) {
             cerr << "Unable to open file: " << questionFileName << endl;
@@ -53,3 +53,4 @@ Question::Option Question::RandomDrawbyRequireLevel(int level)
     int index = rand() % QuestionBank[level - 1].size();
     return QuestionBank[level - 1][index];
 }
+

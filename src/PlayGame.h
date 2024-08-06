@@ -4,6 +4,7 @@
 #include "Background.hpp"
 #include "Question.h"
 #include <iostream>
+
 #include <chrono>
 #include <thread>
 
@@ -12,21 +13,22 @@ using namespace std;
 class PlayGame
 {
     public:
-        PlayGame();
+        PlayGame(); 
         //~PlayGame();
         void StartGame();
         void RunGame();
         void Display();
         void CheckAnswer();
         void Handle();
+        void waitAndExecute(int k);
         bool gameStarted;
         int correct; //1. Normal, 2. Correct, 3.Incorrect
         bool exit;
         bool check;
         Music musicStart;
         Music musicOngame;
-    private:
         int countQuestionCorrected;
+    private:
         int handle;
         Sound correctAns, correctTarget, incorrect;
         Sound newQuestion, selectAnswer, win;
