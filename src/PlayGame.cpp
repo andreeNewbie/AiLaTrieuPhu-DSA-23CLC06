@@ -284,17 +284,23 @@ void PlayGame::RunGame()
     Handle();
     EndDrawing();
 
-    if (correct == 2 && countQuestionCorrected < 10)
+    if (correct == 2)
     {
-        waitAndExecute(3);
-        ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
-        pressA = pressB = pressC = pressD = false;
+        if (countQuestionCorrected < 10)
+        {
+            waitAndExecute(3);
+            ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
+            pressA = pressB = pressC = pressD = false;
+        }
+        correct = 1;
     }
 
-    if (correct == 2) correct = 1; 
-    if (correct == 3)
+    if (correct == 3 || countQuestionCorrected == 10)
     {
-        waitAndExecute(7);
+        if(correct == 3)
+            waitAndExecute(7);
+        if (countQuestionCorrected == 10)
+            waitAndExecute(22);
         gameStarted = false;
         correct = 1;
         exit = false;
