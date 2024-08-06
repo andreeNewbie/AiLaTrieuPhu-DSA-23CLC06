@@ -200,7 +200,7 @@ void PlayGame::Handle()
 
 
     if(printA)
-        DrawTextEx(font,ques.A, {75, 733}, 35, 2, WHITE);
+        DrawTextEx(font, ques.A, {75, 733}, 35, 2, WHITE);
     if(printB)
         DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
     if(printC)

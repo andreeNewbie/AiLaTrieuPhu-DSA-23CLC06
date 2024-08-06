@@ -1,6 +1,11 @@
 #include "Question.h"
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <ctime>
+#include <cstdlib>
 
-Question::Question()//Read file and store to QuestionBank
+Question::Question() // Read file and store to QuestionBank
 {
     QuestionBank.resize(10); // Chỉnh sửa kích thước của QuestionBank để phù hợp với 10 mức độ khó
     for (int index = 0; index < 10; index++) {
@@ -46,4 +51,6 @@ Question::Option Question::RandomDrawbyRequireLevel(int level)
     }
     srand(static_cast<unsigned int>(time(0)));
     int index = rand() % QuestionBank[level - 1].size();
-    return QuestionBank[level - 1][index];}
+    return QuestionBank[level - 1][index];
+}
+
