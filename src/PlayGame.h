@@ -18,6 +18,8 @@ class PlayGame
         void StartGame();
         void RunGame();
         void Display();
+        void phoneFriend();
+        void askAudience();
         void CheckAnswer();
         void Handle();
         void waitAndExecute(int k);

@@ -350,3 +350,12 @@ void PlayGame::RunGame()
     }
 }
 
+void PlayGame::askAudience()
+{
+
+}
+
+void PlayGame::phoneFriend()
+{
+    
+}
