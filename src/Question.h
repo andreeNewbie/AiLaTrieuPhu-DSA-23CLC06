@@ -8,6 +8,7 @@
 #include <sstream>
 #include <ctime>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Question
     public:
         struct Option
         {
+            int level;
             char question[200];
             char A[50];
             char B[50];
@@ -25,6 +27,11 @@ class Question
         };
         Question();
         Option RandomDrawbyRequireLevel(int level);
+        void Sort();
+        vector<Option> Search(int Level);
     private:
-        vector<vector<Option>> QuestionBank;
+        vector<Option> QuestionBank;
+        void QuickSort(int low, int high);
+        int Partition(int low, int high);
+        //void Swap(int i, int j);
 };
