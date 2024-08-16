@@ -1,5 +1,5 @@
 #pragma once
-#include "C:\\raylib\\raylib\\src\\raylib.h"
+#include "C:/raylib/raylib/src/raylib.h"
 #include "Button.hpp"
 #include "Background.hpp"
 #include "Question.h"
@@ -18,8 +18,6 @@ class PlayGame
         void StartGame();
         void RunGame();
         void Display();
-        void phoneFriend();
-        void askAudience();
         void CheckAnswer();
         void Handle();
         void waitAndExecute(int k);
@@ -30,10 +28,12 @@ class PlayGame
         Music musicStart;
         Music musicOngame;
         int countQuestionCorrected;
+        void Apply5050Lifeline();
     private:
         int handle;
         Sound correctAns, correctTarget, incorrect;
         Sound newQuestion, selectAnswer, win;
+        Sound help_5050_sound;
         Background background;
         Background logo;
         Button startButton, exitButton;
@@ -55,4 +55,5 @@ class PlayGame
         bool printA, printB, printC, printD;
         bool pressA, pressB, pressC, pressD;
         bool phoneFriend_used, help5050_used, askAudience_used;
+        bool hideA = false, hideB = false, hideC = false, hideD = false;
 };

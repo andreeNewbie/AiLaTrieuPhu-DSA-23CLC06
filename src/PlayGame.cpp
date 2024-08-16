@@ -1,5 +1,7 @@
 #include "PlayGame.h"
-
+#include <algorithm>
+#include <random>
+#include <vector>
 
 PlayGame::PlayGame()
 {
@@ -61,6 +63,7 @@ PlayGame::PlayGame()
     newQuestion = LoadSound("resources/sounds/newQuestion.mp3");
     selectAnswer = LoadSound("resources/sounds/selectAnswer.mp3");
     win = LoadSound("resources/sounds/Winning.mp3");
+    help_5050_sound = LoadSound("resources/sounds/lifeLine.mp3");
 }
 
 void PlayGame::StartGame()
@@ -81,6 +84,47 @@ void PlayGame::StartGame()
         gameStarted = true;
     if(exitButton.isPress(mousePosition, mousePressed))
         exit = true;
+}
+
+void PlayGame::Apply5050Lifeline()
+{
+    if (help5050_used)
+        return;
+
+    std::vector<int> options = {0, 1, 2, 3};
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(options.begin(), options.end(), g);
+
+    int correctOption;
+    if (strcmp(ques.A, ques.correctAnswer) == 0)
+        correctOption = 0;
+    else if (strcmp(ques.B, ques.correctAnswer) == 0)
+        correctOption = 1;
+    else if (strcmp(ques.C, ques.correctAnswer) == 0)
+        correctOption = 2;
+    else
+        correctOption = 3;
+    int hidden = 0;
+    PlaySound(help_5050_sound);
+    for (int option : options)
+    {
+        if (option != correctOption && hidden < 2)
+        {
+            if (option == 0)
+                hideA = true;
+            else if (option == 1)
+                hideB = true;
+            else if (option == 2)
+                hideC = true;
+            else if (option == 3)
+                hideD = true;
+
+            hidden++;
+        }
+    }
+
+    help5050_used = true;
 }
 
 
@@ -149,7 +193,7 @@ void PlayGame::Handle()
     {
         if (correct == 3 && strcmp(ques.A, ques.correctAnswer) == 0)
             A_right.Draw();
-        else
+        else if (!hideA)
             A.Draw();
     }
 
@@ -164,11 +208,11 @@ void PlayGame::Handle()
     {
         if (correct == 3 && strcmp(ques.B, ques.correctAnswer) == 0)
             B_right.Draw();
-        else
+        else if (!hideB)
             B.Draw();
     }
 
-    if (pressC) 
+    if (pressC)
     {
         if (correct != 2)
             C_wrong.Draw();
@@ -179,11 +223,11 @@ void PlayGame::Handle()
     {
         if (correct == 3 && strcmp(ques.C, ques.correctAnswer) == 0)
             C_right.Draw();
-        else
+        else if (!hideC)
             C.Draw();
     }
 
-    if (pressD) 
+    if (pressD)
     {
         if (correct != 2)
             D_wrong.Draw();
@@ -194,19 +238,18 @@ void PlayGame::Handle()
     {
         if (correct == 3 && strcmp(ques.D, ques.correctAnswer) == 0)
             D_right.Draw();
-        else
+        else if (!hideD)
             D.Draw();
     }
 
-
-    if(printA)
+    if(printA && !hideA)
         DrawTextEx(font, ques.A, {75, 733}, 35, 2, WHITE);
-    if(printB)
-        DrawTextEx(font,ques.B, {580, 733}, 35, 2, WHITE);
-    if(printC)
-        DrawTextEx(font,ques.C, {75, 815}, 35, 2, WHITE);
-    if(printD)
-        DrawTextEx(font,ques.D, {580, 815}, 35, 2, WHITE);
+    if(printB && !hideB)
+        DrawTextEx(font, ques.B, {580, 733}, 35, 2, WHITE);
+    if(printC && !hideC)
+        DrawTextEx(font, ques.C, {75, 815}, 35, 2, WHITE);
+    if(printD && !hideD)
+        DrawTextEx(font, ques.D, {580, 815}, 35, 2, WHITE);
 
     if (!phoneFriend_used)
         help_phoneFriend.Draw();
@@ -221,6 +264,7 @@ void PlayGame::Handle()
     else    
         help_askAudience_used.Draw();
 }
+
 
 void PlayGame::CheckAnswer()
 {
@@ -291,6 +335,8 @@ void PlayGame::RunGame()
             waitAndExecute(3);
             ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
             pressA = pressB = pressC = pressD = false;
+
+            hideA = hideB = hideC = hideD = false;
         }
         correct = 1;
     }
@@ -313,6 +359,8 @@ void PlayGame::RunGame()
         countQuestionCorrected = 0;
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
         musicStart = LoadMusicStream("resources/sounds/Winning1.mp3");
+
+        hideA = hideB = hideC = hideD = false;
     }
 
     if ((pressA || pressB || pressC || pressD) && !check)
@@ -348,14 +396,8 @@ void PlayGame::RunGame()
         PlaySound(selectAnswer);
         pressD = true;
     }
-}
-
-void PlayGame::askAudience()
-{
-
-}
-
-void PlayGame::phoneFriend()
-{
-    
+    if (help_5050.isPress(mousePosition, mousePressed) && !help5050_used)
+    {
+        Apply5050Lifeline();
+    }
 }

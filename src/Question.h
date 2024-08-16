@@ -25,8 +25,6 @@ class Question
         };
         Question();
         Option RandomDrawbyRequireLevel(int level);
-        void Sort();
-        vector<Option> Search(int Level);
     private:
-        vector<Option> QuestionBank;
+        vector<vector<Option>> QuestionBank;
 };

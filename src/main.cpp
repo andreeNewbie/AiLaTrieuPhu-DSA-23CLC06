@@ -2,7 +2,7 @@
 
 int main() 
 {
-    InitWindow(1357.5, 900, "WHO WANT TO BE A BILLIONAIRE");
+    InitWindow(1357.5, 900, "WHO WANTS TO BE A BILLIONAIRE");
     SetTargetFPS(60);
 
     PlayGame game = PlayGame();
