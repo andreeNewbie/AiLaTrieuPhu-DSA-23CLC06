@@ -28,10 +28,14 @@ class PlayGame
         Music musicStart;
         Music musicOngame;
         int countQuestionCorrected;
+        void Apply5050Lifeline();
+        void ApplyPhoneFriendLifeline();
     private:
         int handle;
         Sound correctAns, correctTarget, incorrect;
         Sound newQuestion, selectAnswer, win;
+        Sound help_5050_sound;
+        Sound help_phoneFriend_sound;
         Background background;
         Background logo;
         Button startButton, exitButton;
@@ -40,11 +44,13 @@ class PlayGame
         
         Button help_phoneFriend, help_5050, help_askAudience;
         Button help_phoneFriend_used, help_5050_used, help_askAudience_used;
+        Background phoneFriend_view;
         Font font;
 
         Button A, B, C, D;
         Button A_wrong, B_wrong, C_wrong, D_wrong;
         Button A_right, B_right, C_right, D_right;
+        Button friendAns; // phone friend
 
         Background ScreenQuestion;
         Question question;
@@ -53,4 +59,7 @@ class PlayGame
         bool printA, printB, printC, printD;
         bool pressA, pressB, pressC, pressD;
         bool phoneFriend_used, help5050_used, askAudience_used;
+        bool hideA = false, hideB = false, hideC = false, hideD = false;
+        bool showFriendAns = false;
+        string finallyAnswer;
 };
