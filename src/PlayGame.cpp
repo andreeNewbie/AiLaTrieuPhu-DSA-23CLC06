@@ -293,20 +293,29 @@ void PlayGame::RunGame()
     Handle();
     EndDrawing();
 
-    if (correct == 2 && countQuestionCorrected < 10)
+    if (correct == 2)
     {
-        waitAndExecute(3);
-        ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
-        pressA = pressB = pressC = pressD = false;
-        showFriendAns = false;
-        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
-        printA = printB = printC = printD = true;
+        if (countQuestionCorrected < 10)
+        {
+            if (countQuestionCorrected == 4 || countQuestionCorrected == 7)
+                waitAndExecute(6);
+            else    
+                waitAndExecute(3);
+            ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
+            pressA = pressB = pressC = pressD = false;
+            showFriendAns = false;
+            game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
+            printA = printB = printC = printD = true;
+        }
+        correct = 1;
     }
 
-    if (correct == 2) correct = 1; 
-    if (correct == 3)
+    if (correct == 3 || countQuestionCorrected == 10)
     {
-        waitAndExecute(7);
+        if(correct == 3)
+            waitAndExecute(7);
+        if (countQuestionCorrected == 10)
+            waitAndExecute(22);
         gameStarted = false;
         correct = 1;
         exit = false;
@@ -315,11 +324,12 @@ void PlayGame::RunGame()
         printA = printB = printC = printD = true;
         pressA = pressB = pressC = pressD = false;
         phoneFriend_used = help5050_used = askAudience_used = false;
-        showFriendAns = false;
-        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
+
         countQuestionCorrected = 0;
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
         musicStart = LoadMusicStream("resources/sounds/Winning1.mp3");
+        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
+        showFriendAns = false;
     }
 
     if ((pressA || pressB || pressC || pressD) && !check)
