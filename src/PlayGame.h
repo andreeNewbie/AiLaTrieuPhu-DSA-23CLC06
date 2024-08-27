@@ -4,6 +4,9 @@
 #include "Background.hpp"
 #include "Question.h"
 #include <iostream>
+#include <algorithm>
+#include <random>
+#include <vector>
 
 #include <chrono>
 #include <thread>
@@ -18,8 +21,6 @@ class PlayGame
         void StartGame();
         void RunGame();
         void Display();
-        void phoneFriend();
-        void askAudience();
         void CheckAnswer();
         void Handle();
         void waitAndExecute(int k);
@@ -30,10 +31,13 @@ class PlayGame
         Music musicStart;
         Music musicOngame;
         int countQuestionCorrected;
+        void Apply5050Lifeline();
+        void ApplyPhoneFriendLifeline();
     private:
         int handle;
         Sound correctAns, correctTarget, incorrect;
         Sound newQuestion, selectAnswer, win;
+        Sound help_5050_sound, help_phoneFriend_sound;
         Background background;
         Background logo;
         Button startButton, exitButton;
@@ -42,6 +46,8 @@ class PlayGame
         
         Button help_phoneFriend, help_5050, help_askAudience;
         Button help_phoneFriend_used, help_5050_used, help_askAudience_used;
+        Button friendAns;
+        Background phoneFriend_view;
         Font font;
 
         Button A, B, C, D;
@@ -54,5 +60,7 @@ class PlayGame
 
         bool printA, printB, printC, printD;
         bool pressA, pressB, pressC, pressD;
+        bool showFriendAns;
+        string finallyAnswer;
         bool phoneFriend_used, help5050_used, askAudience_used;
 };

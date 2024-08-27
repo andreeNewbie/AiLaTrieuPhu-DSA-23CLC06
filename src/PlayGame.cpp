@@ -22,6 +22,9 @@ PlayGame::PlayGame()
 
     font = LoadFontEx("resources/fonts/OpenSans-Bold.ttf", 64, 0, 0);
 
+    phoneFriend_view.loadInfo("resources/graphics/phoneFriend_background.png", {0, 0}, 0.71);
+    friendAns.loadInfo("resources/graphics/last-question.png", {15, 480}, 0.40);
+
     A.loadInfo("resources/graphics/last-question.png", {10, 720}, 0.25);
     B.loadInfo("resources/graphics/last-question.png", {525, 720}, 0.25);
     C.loadInfo("resources/graphics/last-question.png", {10, 800}, 0.25);
@@ -46,6 +49,7 @@ PlayGame::PlayGame()
 
     printA = printB = printC = printD = true;
     pressA = pressB = pressC = pressD = false;
+    showFriendAns = false;
     phoneFriend_used = help5050_used = askAudience_used = false;
 
     question = Question();
@@ -61,6 +65,8 @@ PlayGame::PlayGame()
     newQuestion = LoadSound("resources/sounds/newQuestion.mp3");
     selectAnswer = LoadSound("resources/sounds/selectAnswer.mp3");
     win = LoadSound("resources/sounds/Winning.mp3");
+    help_5050_sound = LoadSound("resources/sounds/lifeLine.mp3");
+    help_phoneFriend_sound = LoadSound("resources/sounds/lifeLine.mp3");
 }
 
 void PlayGame::StartGame()
@@ -220,6 +226,9 @@ void PlayGame::Handle()
         help_askAudience.Draw();
     else    
         help_askAudience_used.Draw();
+    if(showFriendAns)
+        DrawTextEx(font, finallyAnswer.c_str(), {90, 350}, 40, 2, WHITE);
+
 }
 
 void PlayGame::CheckAnswer()
@@ -284,23 +293,20 @@ void PlayGame::RunGame()
     Handle();
     EndDrawing();
 
-    if (correct == 2)
+    if (correct == 2 && countQuestionCorrected < 10)
     {
-        if (countQuestionCorrected < 10)
-        {
-            waitAndExecute(3);
-            ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
-            pressA = pressB = pressC = pressD = false;
-        }
-        correct = 1;
+        waitAndExecute(3);
+        ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
+        pressA = pressB = pressC = pressD = false;
+        showFriendAns = false;
+        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
+        printA = printB = printC = printD = true;
     }
 
-    if (correct == 3 || countQuestionCorrected == 10)
+    if (correct == 2) correct = 1; 
+    if (correct == 3)
     {
-        if(correct == 3)
-            waitAndExecute(7);
-        if (countQuestionCorrected == 10)
-            waitAndExecute(22);
+        waitAndExecute(7);
         gameStarted = false;
         correct = 1;
         exit = false;
@@ -309,7 +315,8 @@ void PlayGame::RunGame()
         printA = printB = printC = printD = true;
         pressA = pressB = pressC = pressD = false;
         phoneFriend_used = help5050_used = askAudience_used = false;
-
+        showFriendAns = false;
+        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
         countQuestionCorrected = 0;
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
         musicStart = LoadMusicStream("resources/sounds/Winning1.mp3");
@@ -324,38 +331,144 @@ void PlayGame::RunGame()
 
     Vector2 mousePosition = GetMousePosition();
     bool mousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
-    if (A.isPress(mousePosition, mousePressed))
+    if (A.isPress(mousePosition, mousePressed) && printA)
     {
         check = false;
         PlaySound(selectAnswer);
         pressA = true;
     }
-    if (B.isPress(mousePosition, mousePressed))
+    if (B.isPress(mousePosition, mousePressed) && printB)
     {
         check = false;
         PlaySound(selectAnswer);
         pressB = true;
     }
-    if (C.isPress(mousePosition, mousePressed))
+    if (C.isPress(mousePosition, mousePressed) && printC)
     {
         check = false;
         PlaySound(selectAnswer);
         pressC = true;
     }
-    if (D.isPress(mousePosition, mousePressed))
+    if (D.isPress(mousePosition, mousePressed) && printD)
     {
         check = false;
         PlaySound(selectAnswer);
         pressD = true;
     }
+    if (help_5050.isPress(mousePosition, mousePressed) && !help5050_used)
+        Apply5050Lifeline();
+    if (help_phoneFriend.isPress(mousePosition, mousePressed) && !phoneFriend_used) 
+        ApplyPhoneFriendLifeline();
+
 }
 
-void PlayGame::askAudience()
+void PlayGame::Apply5050Lifeline()
 {
+    if (help5050_used)
+        return;
+    vector<int> options = {0, 1, 2, 3};
+    random_device rd;
+    mt19937 g(rd());
+    shuffle(options.begin(), options.end(), g);
 
+    int correctOption;
+    if (strcmp(ques.A, ques.correctAnswer) == 0)
+        correctOption = 0;
+    else if (strcmp(ques.B, ques.correctAnswer) == 0)
+        correctOption = 1;
+    else if (strcmp(ques.C, ques.correctAnswer) == 0)
+        correctOption = 2;
+    else
+        correctOption = 3;
+    int hidden = 0;
+    PlaySound(help_5050_sound);
+    for (int option : options)
+    {
+        if (option != correctOption && hidden < 2)
+        {
+            if (option == 0)
+                printA = false;
+            else if (option == 1)
+                printB = false;
+            else if (option == 2)
+                printC = false;
+            else if (option == 3)
+                printD = false;
+
+            hidden++;
+        }
+    }
+    help5050_used = true;
 }
 
-void PlayGame::phoneFriend()
-{
+void PlayGame::ApplyPhoneFriendLifeline() {
+
+    if(phoneFriend_used) return;
+
+    vector<string> activeAns;
+    if(printA) activeAns.push_back(ques.A);
+    if(printB) activeAns.push_back(ques.B);
+    if(printC) activeAns.push_back(ques.C);
+    if(printD) activeAns.push_back(ques.D);
+
+    vector<string> incorrectAnswer;
+    if(printA && strcmp(ques.A, ques.correctAnswer) != 0) incorrectAnswer.push_back(ques.A);
+    if(printB && strcmp(ques.B, ques.correctAnswer) != 0) incorrectAnswer.push_back(ques.B);
+    if(printC && strcmp(ques.C, ques.correctAnswer) != 0) incorrectAnswer.push_back(ques.C);
+    if(printD && strcmp(ques.D, ques.correctAnswer) != 0) incorrectAnswer.push_back(ques.D);
+
+    srand(static_cast<unsigned int>(time(0)));
+    int randomNumber = rand() % 101;
+
+    int friendReaction = 1; // 1 == sure, 2 == uncertain, 3 == doesNotKnow
+    if(activeAns.size() > 2) {
+        if(randomNumber < 40) friendReaction = 1;
+        else if(randomNumber >= 40 && randomNumber <= 70) friendReaction = 2;
+        else if(randomNumber > 70) friendReaction = 3;
+    }
+    else {
+        if(randomNumber < 75) friendReaction = 1;
+        else if(randomNumber >= 75 && randomNumber <= 90) friendReaction = 2;
+        else if(randomNumber > 90) friendReaction = 3;
+    }
+
+    string friendAnswer;
+    srand(static_cast<unsigned int>(time(0)));
+    int randomNumber2 = rand() % 101;
+
+    if(friendReaction == 1) {
+        if(randomNumber2 <= 95) {
+            friendAnswer = ques.correctAnswer;
+        }
+        else {
+            int randomIndex = rand() % incorrectAnswer.size();
+            friendAnswer = incorrectAnswer[randomIndex];
+        }
+        finallyAnswer = "Friend: I am sure that the answer is: " + friendAnswer;
+    }
+    else if(friendReaction == 2) {
+        if(randomNumber2 <= 50) {
+            friendAnswer = ques.correctAnswer;
+        }
+        else {
+            int randomIndex = rand() % incorrectAnswer.size();
+            friendAnswer = incorrectAnswer[randomIndex];
+        }
+        finallyAnswer = "Friend: It seems to me that the answer is: " + friendAnswer;
+    }
+    else if(friendReaction == 3) {
+        if(randomNumber2 <= 25) {
+            friendAnswer = ques.correctAnswer;
+        }
+        else {
+            int randomIndex = rand() % incorrectAnswer.size();
+            friendAnswer = incorrectAnswer[randomIndex];
+        }
+        finallyAnswer = "Friend: Unfortunately i dont know the answer.";
+    }
     
+    PlaySound(help_phoneFriend_sound);
+    game_background2.loadInfo("resources/graphics/output-onlinepngtools.png", {0, 0}, 0.42);
+    phoneFriend_used = true;
+    showFriendAns = true;
 }
