@@ -29,6 +29,7 @@ class PlayGame
         Music musicOngame;
         int countQuestionCorrected;
         void Apply5050Lifeline();
+        void ApplyAskAudienceLifeline();
     private:
         int handle;
         Sound correctAns, correctTarget, incorrect;
@@ -56,4 +57,6 @@ class PlayGame
         bool pressA, pressB, pressC, pressD;
         bool phoneFriend_used, help5050_used, askAudience_used;
         bool hideA = false, hideB = false, hideC = false, hideD = false;
+        bool showAudienceResult;
+        string askAudienceResult;
 };
