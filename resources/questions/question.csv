@@ -11,12 +11,12 @@
 9;What is the chemical formula for glucose?;C6H12O6;C6H6O6;C6H12O5;C5H12O6;C6H12O6
 5;What is the capital of Brazil?;Rio de Janeiro;Sao Paulo;Brasilia;Salvador;Brasilia
 3;What is the deepest ocean in the world?;Atlantic;Indian;Arctic;Pacific;Pacific
-3;What is the second most abundant gas in the Earth's atmosphere?;Oxygen;Carbon Dioxide;Nitrogen;Helium;Oxygen
+3;The second most abundant gas in the Earth's atmosphere?;Oxygen;Carbon Dioxide;Nitrogen;Helium;Oxygen
 10;Who discovered the structure of DNA?;Watson and Crick;Darwin and Wallace;Newton and Leibniz;Einstein and Bohr;Watson and Crick
 4;What is the smallest bone in the human body?;Femur;Stapes;Ulna;Radius;Stapes
 1;What is 2 + 2?;3;4;5;6;4
 10;What is the formula for calculating acceleration?;a=v/t;a=F/m;a=mv;a=mg;a=F/m
-2;"Who wrote ""Romeo and Juliet""?";Shakespeare;Dickens;Hemingway;Orwell;Shakespeare
+2;Who wrote "Romeo and Juliet"?;Shakespeare;Dickens;Hemingway;Orwell;Shakespeare
 2;What is the smallest prime number?;1;2;3;5;2
 3;Who discovered penicillin?;Newton;Einstein;Fleming;Curie;Fleming
 9;Who discovered radioactivity?;Curie;Rutherford;Thomson;Bohr;Curie
@@ -30,10 +30,10 @@
 4;What is the most spoken language in the world?;English;Spanish;Chinese;Hindi;Chinese
 7;Who discovered the electron?;Bohr;Thomson;Rutherford;Planck;Thomson
 7;What is the most abundant mineral in the Earth's crust?;Quartz;Feldspar;Mica;Calcite;Feldspar
-6;"Who painted ""Starry Night""?";Van Gogh;Picasso;Monet;Rembrandt;Van Gogh
+6;Who painted "Starry Night"?;Van Gogh;Picasso;Monet;Rembrandt;Van Gogh
 3;Who developed the theory of evolution?;Newton;Einstein;Darwin;Tesla;Darwin
 3;Who is known as the mother of computers?;Turing;Jobs;Lovelace;Babbage;Lovelace
-9;"Who wrote ""War and Peace""?";Tolstoy;Dostoevsky;Chekhov;Gogol;Tolstoy
+9;Who wrote "War and Peace"?;Tolstoy;Dostoevsky;Chekhov;Gogol;Tolstoy
 2;Which planet is known as the Blue Planet?;Earth;Mars;Jupiter;Venus;Earth
 5;Who discovered America?;Columbus;Vespucci;Magellan;Cabot;Columbus
 3;Who is known as the father of computers?;Turing;Jobs;Gates;Babbage;Babbage
@@ -45,7 +45,7 @@
 2;What is the largest continent?;Asia;Africa;Europe;America;Asia
 2;What is the largest mammal?;Elephant;Whale;Shark;Giraffe;Whale
 3;Which element is the most abundant in the universe?;Iron;Carbon;Hydrogen;Oxygen;Hydrogen
-8;"Who wrote ""Moby Dick""?";Melville;Hemingway;Twain;Dickens;Melville
+8;Who wrote "Moby Dick"?;Melville;Hemingway;Twain;Dickens;Melville
 6;What is the atomic number of carbon?;4;5;6;7;6
 2;What is the capital of France?;Berlin;Madrid;Paris;Rome;Paris
 3;What is the chemical symbol for gold?;Au;Ag;Fe;Pb;Au
@@ -67,11 +67,11 @@
 4;What is the powerhouse of the cell?;Nucleus;Ribosome;Mitochondria;Chloroplast;Mitochondria
 3;Who discovered gravity?;Newton;Einstein;Fleming;Curie;Newton
 1;What is the opposite of hot?;Cold;Warm;Wet;Dry;Cold
-6;"Who wrote ""Pride and Prejudice""?";Austen;Bronte;Eliot;Shelley;Austen
+6;Who wrote "Pride and Prejudice"?;Austen;Bronte;Eliot;Shelley;Austen
 9;What is the formula for calculating potential energy?;PE=mv^2;PE=mgh;PE=1/2mv;PE=mg;PE=mgh
 8;What is the formula for calculating kinetic energy?;KE=mv^2;KE=1/2mv;KE=1/2mv^2;KE=mv;KE=1/2mv^2
 3;What is the capital city of Australia?;Sydney;Melbourne;Canberra;Brisbane;Canberra
-2;"Who painted ""Starry Night""?";Van Gogh;Picasso;Da Vinci;Michelangelo;Van Gogh
+2;Who painted "Starry Night"?;Van Gogh;Picasso;Da Vinci;Michelangelo;Van Gogh
 2;What is the formula for water?;H2;O2;H2O;CO2;H2O
 1;Which day comes after Monday?;Friday;Saturday;Sunday;Tuesday;Tuesday
 9;What is the most abundant gas in the Earth's atmosphere?;Oxygen;Nitrogen;Carbon Dioxide;Argon;Nitrogen
@@ -80,11 +80,11 @@
 2;Who painted the Mona Lisa?;Van Gogh;Picasso;Da Vinci;Michelangelo;Da Vinci
 1;Which animal meows?;Dog;Cat;Cow;Sheep;Cat
 2;What is the largest bird?;Eagle;Ostrich;Penguin;Sparrow;Ostrich
-7;"Who wrote ""The Great Gatsby""?";Hemingway;Fitzgerald;Steinbeck;Twain;Fitzgerald
+7;Who wrote "The Great Gatsby"?;Hemingway;Fitzgerald;Steinbeck;Twain;Fitzgerald
 1;Which animal barks?;Cat;Dog;Cow;Sheep;Dog
 1;How many legs does a cat have?;2;4;6;8;4
-5;"Who wrote ""To Kill a Mockingbird""?";Lee;Hemingway;Orwell;Fitzgerald;Lee
-10;"Who painted ""The Birth of Venus""?";Botticelli;Michelangelo;Da Vinci;Raphael;Botticelli
+5;Who wrote "To Kill a Mockingbird"?;Lee;Hemingway;Orwell;Fitzgerald;Lee
+10;Who painted "The Birth of Venus"?;Botticelli;Michelangelo;Da Vinci;Raphael;Botticelli
 7;What is the atomic number of oxygen?;6;7;8;9;8
 2;How many oceans are there?;5;6;7;8;5
 4;Who is known as the father of psychoanalysis?;Freud;Jung;Adler;Skinner;Freud
@@ -94,10 +94,10 @@
 2;What is the smallest even number?;1;2;3;5;2
 3;Which element has the highest melting point?;Iron;Carbon;Tungsten;Platinum;Tungsten
 4;What is the capital of Japan?;Beijing;Seoul;Tokyo;Bangkok;Tokyo
-2;"Who wrote ""To Kill a Mockingbird""?";Shakespeare;Dickens;Harper Lee;Orwell;Harper Lee
+2;Who wrote "To Kill a Mockingbird"?;Shakespeare;Dickens;Harper Lee;Orwell;Harper Lee
 4;What is the chemical symbol for sodium?;Na;S;Sn;N;Na
-9;"Who painted ""Guernica""?";Picasso;Dali;Matisse;Van Gogh;Picasso
-8;"Who painted ""The Last Supper""?";Da Vinci;Michelangelo;Raphael;Donatello;Da Vinci
+9;Who painted "Guernica"?;Picasso;Dali;Matisse;Van Gogh;Picasso
+8;Who painted "The Last Supper"?;Da Vinci;Michelangelo;Raphael;Donatello;Da Vinci
 4;What is the main component of the sun?;Helium;Hydrogen;Oxygen;Carbon;Hydrogen
 9;What is the atomic number of helium?;1;2;3;4;2
 3;Who developed the theory of relativity?;Newton;Einstein;Galileo;Tesla;Einstein
@@ -105,9 +105,9 @@
 5;Who painted the ceiling of the Sistine Chapel?;Da Vinci;Raphael;Michelangelo;Donatello;Michelangelo
 2;What is the capital of Germany?;Berlin;Madrid;Paris;Rome;Berlin
 4;What is the capital of Canada?;Toronto;Vancouver;Montreal;Ottawa;Ottawa
-10;What is the speed of light in a vacuum?;"300.000 km/s";"299.792 km/s";"299.792.458 m/s";"300.000.000 m/s";"299.792.458 m/s"
+10;What is the speed of light in a vacuum?;300.000 km/s;299.792 km/s;299.792.458 m/s;300.000.000 m/s;299.792.458 m/s
 2;What gas do humans exhale?;Oxygen;Nitrogen;Carbon Dioxide;Hydrogen;Carbon Dioxide
-7;"Who painted ""The Persistence of Memory""?";Dali;Picasso;Kahlo;Matisse;Dali
+7;Who painted "The Persistence of Memory"?;Dali;Picasso;Kahlo;Matisse;Dali
 3;What is the hardest man-made substance?;Steel;Iron;Diamond;Graphene;Graphene
 7;What is the chemical formula for table salt?;NaCl;KCl;CaCl2;MgCl2;NaCl
 3;What is the speed of light?;"300.000 km/s";"150.000 km/s";"200.000 km/s";"100.000 km/s";"300.000 km/s"
@@ -128,3 +128,174 @@
 2;Which planet is known as the Red Planet?;Earth;Mars;Jupiter;Venus;Mars
 9;What is the capital of Germany?;Berlin;Munich;Frankfurt;Hamburg;Berlin
 5;What is the square root of 144?;10;11;12;13;12
+9;Korean spicy pepper paste?;Gochujang;Doenjang;Kimchi;Ssamjang;Gochujang
+10;Traditional Japanese festival garment?;Yukata;Kimono;Hakama;Juban;Yukata
+3;Term for passing the ball?;Passing;Dribbling;Shooting;Tackling;Passing
+1;Noodle dish in soy broth?;Ramen;Udon;Soba;Somen;Ramen
+9;Korean grilled beef dish?;Bulgogi;Kimchi;Japchae;Samgyeopsal;Bulgogi
+3;Record holder for most goals in a year?;Messi;Ronaldo;Pele;Maradona;Messi
+1;Rice dish with toppings?;Donburi;Sushi;Tempura;Ramen;Donburi
+9;Korean spicy rice cake dish?;Tteokbokki;Kimchi;Bulgogi;Bibimbap;Tteokbokki
+1;Rice wrapped in seaweed?;Onigiri;Sushi;Mochi;Gohan;Onigiri
+9;Korean spicy stir-fried chicken?;Dakgalbi;Bulgogi;Kimchi;Japchae;Dakgalbi
+6;Nguyen Quang Hai's sport?;Football;Badminton;Table Tennis;Volleyball;Football
+8;Tea served with sushi?;Green Tea;Black Tea;Oolong Tea;Herbal Tea;Green Tea
+5;City with ancient town and lantern festival?;Hoi An;Hue;Hanoi;Ho Chi Minh City;Hoi An
+4;Accord ending U.S. involvement in Vietnam?;Paris Peace Accords;Geneva Accords;Helsinki Accords;Yalta Conference;Paris Peace Accords
+1;Sushi using raw fish?;Edomae Sushi;Kaiseki;Teppanyaki;Kaiseki;Edomae Sushi
+7;Traditional Vietnamese dance with costumes?;Lion Dance;Dragon Dance;Bamboo Dance;Folk Dance;Lion Dance
+6;Vietnamese club that won AFC Cup 2019?;Hanoi FC;Hoang Anh Gia Lai;Song Lam Nghe An;Becamex Binh Duong;Hanoi FC
+9;Korean side dishes served with meals?;Banchan;Kimchi;Bulgogi;Jjigae;Banchan
+1;Soup made from fermented soybeans?;Miso Soup;Shoyu;Soba;Udon;Miso Soup
+10;Traditional Japanese wooden gate?;Torii;Pagoda;Koi;Sakura;Torii
+5;City known for historical sites, French architecture?;Hue;Hanoi;Ho Chi Minh City;Da Nang;Hue
+1;Japanese deep-fried seafood/veggies?;Tempura;Teriyaki;Sashimi;Gyoza;Tempura
+5;Vietnamese province with Ha Long Bay?;Quang Ninh;Thanh Hoa;Hai Phong;Nghe An;Quang Ninh
+8;Japanese marinated grilled meat?;Yakiniku;Katsu;Soba;Tempura;Yakiniku
+6;Top Vietnamese weightlifter?;Thach Kim Tuan;Nguyen Thi Anh Vien;Vo Thi Huong;Doan Thi Thu;Thach Kim Tuan
+7;Traditional Vietnamese fermented rice drink?;Ruou Nep;Beer;Wine;Whisky;Ruou Nep
+1;Rice dish with various ingredients?;Chirashi;Donburi;Okonomiyaki;Karaage;Chirashi
+10;Japanese art of bonsai?;Miniature tree cultivation;Flower arranging;Tea ceremony;Calligraphy;Miniature tree cultivation
+8;Japanese noodle soup with soy/miso?;Ramen;Udon;Soba;Soba;Ramen
+4;Tet Offensive?;Surprise attacks;Peace negotiation;Capture of Saigon;Invasion of Laos;Surprise attacks
+8;Japanese battered deep-fried dish?;Tempura;Katsu;Yakitori;Soba;Tempura
+4;President behind Gulf of Tonkin Resolution?;Lyndon B. Johnson;John F. Kennedy;Richard Nixon;Dwight D. Eisenhower;Lyndon B. Johnson
+5;Vietnam's "rice bowl" region?;Mekong Delta;Red River Delta;Central Highlands;Northwest;Mekong Delta
+4;Event ending Vietnam War?;Fall of Saigon;Dien Bien Phu;Paris Peace Accords;Rolling Thunder;Fall of Saigon
+1;Dish with thinly sliced meat in hot broth?;Shabu-shabu;Sukiyaki;Nabe;Katsu;Shabu-shabu
+7;Vietnamese mid-autumn moon celebration?;Mid-Autumn Festival;Tet;Lunar New Year;Independence Day;Mid-Autumn Festival
+5;Vietnamese highlands/plateaus region?;Central Highlands;Red River Delta;Mekong Delta;Northern Plain;Central Highlands
+8;Japanese dish with meat in sweet soy sauce?;Sukiyaki;Teriyaki;Katsu;Tempura;Sukiyaki
+7;Vietnamese Lunar New Year?;Tet;Mid-Autumn Festival;Reunification Day;Independence Day;Tet
+2;Korean fermented cabbage?;Kimchi;Bibimbap;Bulgogi;Tteokbokki;Kimchi
+3;Tackling in soccer?;Taking the ball away;Dribbling;Heading;Passing;Taking the ball away
+4;Cold War policy of aid?;Truman Doctrine;Marshall Plan;Domino Theory;Containment;Truman Doctrine
+3;Award for best World Cup player?;Golden Ball;Ballon d'Or;Golden Boot;Best Player Award;Golden Ball
+9;Korean hot spicy tofu stew?;Sundubu-jjigae;Kimchi;Bulgogi;Jjajangmyeon;Sundubu-jjigae
+4;Who succeeded Ho Chi Minh?;Le Duan;Vo Nguyen Giap;Ngo Dinh Diem;Pham Van Dong;Le Duan
+6;Vietnamese team won AFF Cup 2008?;Vietnam;Thailand;Indonesia;Malaysia;Vietnam
+5;Northernmost point of Vietnam?;Sapa;Mu Cang Chai;Lang Son;Dien Bien Phu;Sapa
+4;Insurgency group in South Vietnam?;Viet Cong;Khmer Rouge;Hmong;Pathet Lao;Viet Cong
+3;Where can the goalkeeper use hands?;Penalty Area;Goal Area;Center Circle;Corner Area;Penalty Area
+10;Japanese garden style with simplicity?;Zen Garden;Koi Pond;Rock Garden;Tea Garden;Zen Garden
+2;Seasoned sautéed spinach?;Sigeumchi Namul;Kimchi;Bulgogi;Tteokbokki;Sigeumchi Namul
+5;Southernmost point of Vietnam?;Ca Mau;Vung Tau;Ho Chi Minh City;Con Dao;Ca Mau
+7;Traditional Vietnamese dress?;Ao Dai;Kimono;Hanbok;Sari;Ao Dai
+1;Grilled chicken skewers?;Yakitori;Tempura;Sashimi;Ramen;Yakitori
+5;Primary river in northern Vietnam?;Red River;Mekong;Tay Con Linh;Cuu Long;Red River
+7;Vietnamese silk production region?;Hoi An;Hue;Hanoi;Ho Chi Minh City;Hoi An
+8;Japanese raw fish dish?;Sashimi;Sushi;Tempura;Ramen;Sashimi
+1;Breaded deep-fried pork cutlet?;Tonkatsu;Yakitori;Okonomiyaki;Miso Soup;Tonkatsu
+8;Japanese stew with meat and veggies?;Nabemono;Ramen;Soba;Tempura;Nabemono
+1;Japanese omelette with fillings?;Tamagoyaki;Oyakodon;Katsudon;Kushiage;Tamagoyaki
+6;Traditional Vietnamese martial art?;Vovinam;Taekwondo;Karate;Judo;Vovinam
+3;National team tournament every four years?;World Cup;UEFA Champions League;Copa Libertadores;FA Cup;World Cup
+6;Vietnamese sport with bamboo pole?;Bamboo Dance;Pencak Silat;Vovinam;Tug of War;Bamboo Dance
+2;Marinated meat grilled on a table?;Bulgogi;Samgyeopsal;Kimchi Jjigae;Japchae;Bulgogi
+5;Vietnamese province with Phong Nha-Ke Bang?;Quang Binh;Quang Tri;Ha Tinh;Nghe An;Quang Binh
+7;Traditional Vietnamese fermented fish dish?;Mam Tom;Pho;Banh Xeo;Cha Gio;Mam Tom
+3;Country won 2018 World Cup?;France;Brazil;Germany;Argentina;France
+10;Japanese raw fish on rice?;Sushi;Tempura;Ramen;Sashimi;Sushi
+10;Japanese cherry blossom festival?;Hanami;Matsuri;Tanabata;Setsubun;Hanami
+9;Korean dish with rice, veggies, meat?;Bibimbap;Kimchi;Jjajangmyeon;Sundubu-jjigae;Bibimbap
+2;Korean marinated grilled beef?;Bulgogi;Kimchi;Samgyeopsal;Jajangmyeon;Bulgogi
+2;Korean beef bone soup?;Seolleongtang;Kimchi Jjigae;Sundubu Jjigae;Bulgogi;Seolleongtang
+6;Vietnamese event with martial arts?;Hung Kings Temple Festival;Tet Festival;Mid-Autumn Festival;Hoi An Lantern Festival;Hung Kings Temple Festival
+2;Stir-fried noodles with vegetables?;Japchae;Jajangmyeon;Naengmyeon;Bulgogi;Japchae
+6;Vietnam's national basketball league?;VBA;VNL;VBL;VNBL;VBA
+3;Country with most World Cups?;Brazil;Germany;Italy;Argentina;Brazil
+5;Longest river in Vietnam?;Mekong;Red;Yangtze;Cuu Long;Red
+8;Japanese savory pancake?;Okonomiyaki;Takoyaki;Soba;Udon;Okonomiyaki
+9;Korean cold noodle dish?;Naengmyeon;Bibimbap;Bulgogi;Tteokbokki;Naengmyeon
+10;Japanese art of flower arrangement?;Ikebana;Sado;Origami;Noh;Ikebana
+7;Vietnamese coffee method?;Egg Coffee;Espresso;Cappuccino;Turkish Coffee;Egg Coffee
+4;Vietnam's independence from France?;1954;1945;1965;1975;1954
+9;Korean rice wrapped in seaweed?;Gimbap;Tteokbokki;Kimchi;Bibimbap;Gimbap
+9;Korean steamed egg custard?;Gyeranjjim;Bibimbap;Tteokbokki;Galbi;Gyeranjjim
+1;Savory pancake with flour, cabbage?;Okonomiyaki;Takoyaki;Tamagoyaki;Miso Soup;Okonomiyaki
+4;Leader of Viet Minh?;Ho Chi Minh;Vo Nguyen Giap;Ngo Dinh Diem;Bao Dai;Ho Chi Minh
+8;Japanese hot pot at table?;Shabu-Shabu;Tempura;Sushi;Sashimi;Shabu-Shabu
+7;Traditional Vietnamese hat?;Non La;Fedora;Cowboy Hat;Top Hat;Non La
+7;Festival with floating lanterns?;Hoi An Lantern Festival;Tet;Mid-Autumn Festival;Bun Bo Hue Festival;Hoi An Lantern Festival
+6;Main sport in Vietnamese high schools?;Football;Basketball;Badminton;Table Tennis;Football
+7;Vietnamese traditional puppet show?;Water Puppetry;Shadow Puppetry;Marionette;Doll Play;Water Puppetry
+2;Dish with fermented soybean paste?;Doenjang Jjigae;Kimchi;Bulgogi;Jajangmyeon;Doenjang Jjigae
+10;Japanese paper folding art?;Origami;Ikebana;Sado;Shodo;Origami
+6;Popular sport in Vietnam's rural festivals?;Dragon Boat Racing;Vovinam;Football;Archery;Dragon Boat Racing
+10;Japanese word for "hot spring"?;Onsen;Sento;Ryokan;Furo;Onsen
+3;Player known as "The Rocket"?;Ronaldinho;Pele;Messi;Ronaldo;Ronaldinho
+3;Position defending against attacks?;Defender;Midfielder;Forward;Goalkeeper;Defender
+8;Japanese dish with vinegared rice?;Sushi;Udon;Ramen;Soba;Sushi
+8;Japanese rolled omelet?;Tamago;Okonomiyaki;Yakimeshi;Takoyaki;Tamago
+1;Dish cooked in special pan with seafood/meat?;Takoyaki;Gyoza;Shumai;Kibinago;Takoyaki
+8;Japanese small pancakes with fillings?;Takoyaki;Okonomiyaki;Soba;Mochi;Takoyaki
+9;Korean fermented soybean paste?;Doenjang;Gochujang;Kimchi;Ssamjang;Doenjang
+10;Japanese art of calligraphy?;Shodo;Ikebana;Origami;Noh;Shodo
+7;Traditional Vietnamese wedding ceremony?;Le Cuoi;Le Mat;Le Chieu;Le Hoan;Le Cuoi
+10;Japanese tea ceremony?;Chanoyu;Sado;Ikebana;Shodo;Chanoyu
+6;"Golden Stars" Vietnamese sports team?;Vietnam Football Team;Vietnam Basketball Team;Vietnam Volleyball Team;Vietnam Badminton Team;Vietnam Football Team
+8;Japanese rice wine?;Sake;Shochu;Umeshu;Miso;Sake
+4;Last emperor of Vietnam?;Bao Dai;Gia Long;Minh Mang;Tu Duc;Bao Dai
+5;Vietnamese province with terraced rice fields?;Lao Cai;Ha Giang;Son La;Dien Bien;Lao Cai
+5;Body of water to the east of Vietnam?;South China Sea;Gulf of Thailand;Andaman Sea;Java Sea;South China Sea
+3;Match-deciding play in knockout stages?;Penalty Shootout;Draw;Extra Time;Friendly;Penalty Shootout
+9;Korean pancake with vegetables, seafood?;Pajeon;Kimchi;Japchae;Bulgogi;Pajeon
+6;City hosting VnExpress Marathon?;Ho Chi Minh City;Hanoi;Da Nang;Hue;Ho Chi Minh City
+10;Japanese traditional teahouse?;Chashitsu;Ryokan;Sento;Onsen;Chashitsu
+7;City with ancient temples, colonial architecture?;Hue;Hanoi;Ho Chi Minh City;Da Nang;Hue
+5;Central Vietnamese region with beaches?;Nha Trang;Da Nang;Hue;Vung Tau;Nha Trang
+3;Direct free kick?;Goal without touching;Indirect Free Kick;Penalty Kick;Corner Kick;Goal without touching
+2;Korean steamed egg dish?;Gyeranjjim;Kimchi;Japchae;Bulgogi;Gyeranjjim
+7;Vietnamese art of flower arrangement?;Hoa Mai;Ikebana;Nhat Tan;Xuan Mai;Hoa Mai
+7;Vietnamese dish often eaten during Tet?;Banh Chung;Pho;Banh Mi;Goi Cuon;Banh Chung
+7;Ethnic group known for traditional embroidery?;H'mong;Dao;Thai;Kinh;H'mong
+10;Japanese word for "cultural festival"?;Matsuri;Sakura;Hatsu;Omatsuri;Matsuri
+4;Turning point battle in First Indochina War?;Dien Bien Phu;Hanoi;Hue;Saigon;Dien Bien Phu
+1;Dish with thinly sliced beef and vegetables?;Sukiyaki;Soba;Katsu;Takoyaki;Sukiyaki
+2;Grilled pork belly in Korean cuisine?;Samgyeopsal;Bulgogi;Jjajangmyeon;Sundubu Jjigae;Samgyeopsal
+9;Korean spicy noodle soup with beef, vegetables?;Jjambbong;Sundubu-jjigae;Bulgogi;Naengmyeon;Jjambbong
+2;Black bean paste noodle dish?;Jajangmyeon;Bibimbap;Sundubu Jjigae;Bulgogi;Jajangmyeon
+8;Japanese grilled skewered chicken?;Yakitori;Sashimi;Udon;Tempura;Yakitori
+5;Capital city of Vietnam?;Hanoi;Ho Chi Minh City;Da Nang;Hue;Hanoi
+2;Marinated beef with spicy sauce?;Bulgogi;Samgyeopsal;Tteokbokki;Japchae;Bulgogi
+5;Largest island in Vietnam?;Phu Quoc;Cat Ba;Con Dao;Nam Du;Phu Quoc
+9;Korean fermented cabbage dish?;Kimchi;Bulgogi;Bibimbap;Jjigae;Kimchi
+8;Japanese pickled vegetable with sushi?;Gari;Kimchi;Tsukemono;Miso;Gari
+2;Cold noodle soup eaten in summer?;Naengmyeon;Kimchi;Bulgogi;Sundubu Jjigae;Naengmyeon
+1;Sweet rice cake with red bean paste?;Mochi;Dorayaki;Taiyaki;Anmitsu;Mochi
+8;Type of rice used for sushi?;Short-grain;Long-grain;Jasmine;Basmati;Short-grain
+4;Goal of Vietnamization?;Reduce U.S. involvement;Increase aid;Unify Vietnam;Alliance with China;Reduce U.S. involvement
+2;Korean soup with tofu and seafood?;Sundubu Jjigae;Kimchi Jjigae;Bulgogi;Bibimbap;Sundubu Jjigae
+5;Mountain range in northern Vietnam?;Hoang Lien;Annamite;Tay Con Linh;Sapa;Hoang Lien
+6;Vietnamese judo athlete with international record?;Nguyen Van Hieu;Nguyen Thi Huong;Do Thi Thu;Mai Hoang My Trang;Nguyen Van Hieu
+3;Organization governing international soccer?;FIFA;UEFA;CONCACAF;AFC;FIFA
+1;Japanese dish with raw fish and rice?;Sushi;Ramen;Tempura;Udon;Sushi
+1;Thin, buckwheat noodles served cold?;Soba;Udon;Ramen;Somen;Soba
+7;Vietnamese traditional drum for festivals?;Danh Duong;Tam Tam;Tranh;Nha;Danh Duong
+6;Most successful Vietnamese Olympic swimmer?;Nguyen Thi Anh Vien;Le Tu Chinh;Pham Manh Duc;Vu Thi Huong;Nguyen Thi Anh Vien
+2;Rice mixed with vegetables, red pepper paste?;Bibimbap;Bulgogi;Kimchi;Sundae;Bibimbap
+6;Vietnamese table tennis player with international success?;Mai Hoang My Trang;Dinh Thi Hoai;Nguyen Tien Minh;Doan Thi Thu;Mai Hoang My Trang
+6;Event associated with Ho Chi Minh City Marathon?;Running;Cycling;Swimming;Skiing;Running
+4;Strategy used by North Vietnam to defeat the South?;People's War;Scorched Earth;Total War;Shock and Awe;People's War
+4;"Land to the Tiller" policy?;Redistribution of land;Industrialization;Militarization;Cultural reform;Redistribution of land
+5;Largest port city in Vietnam?;Ho Chi Minh City;Hanoi;Da Nang;Hai Phong;Ho Chi Minh City
+4;South Vietnamese government after French rule?;Republic of Vietnam;State of Vietnam;Democratic Republic of Vietnam;Socialist Republic of Vietnam;Republic of Vietnam
+9;Korean grilled pork belly dish?;Samgyeopsal;Bulgogi;Galbi;Tteokbokki;Samgyeopsal
+4;When was the Geneva Conference held?;1954;1945;1968;1975;1954
+9;Korean stir-fried glass noodles with vegetables?;Japchae;Kimchi;Bulgogi;Sundubu-jjigae;Japchae
+2;Hot, spicy stew with tofu and seafood?;Kimchi Jjigae;Sundubu Jjigae;Bulgogi;Japchae;Kimchi Jjigae
+3;Tournament featuring club teams from South America and Europe?;Club World Cup;UEFA Champions League;Copa America;FIFA World Cup;Club World Cup
+3;Position primarily for scoring goals?;Forward;Defender;Midfielder;Goalkeeper;Forward
+10;Japanese ritual purification using water?;Misogi;Onsen;Sento;Furo;Misogi
+10;Japanese art of arranging and serving tea?;Tea Ceremony;Ikebana;Shodo;Noh;Tea Ceremony
+3;League with teams like Manchester United?;Premier League;La Liga;Serie A;Bundesliga;Premier League
+3;Number of players on the field per team in soccer?;11;10;12;9;11
+6;Vietnamese athlete who won gold at 2016 Asian Games?;Hoang Xuan Vinh;Nguyen Thi Anh Vien;Dao Thi Huong;Bui Thi Thu Thao;Hoang Xuan Vinh
+2;Korean rice cake with red bean paste?;Tteok;Bulgogi;Kimchi;Japchae;Tteok
+8;Japanese noodle dish served cold with dipping sauce?;Zaru Soba;Ramen;Tempura;Udon;Zaru Soba
+9;Korean beef short ribs in sweet soy sauce?;Galbi;Bulgogi;Kimchi;Samgyeopsal;Galbi
+10;Japanese theater art with masks, elaborate costumes?;Noh;Kabuki;Bunraku;Rakugo;Noh
+10;Traditional Japanese performance with dramatic singing, dancing?;Kabuki;Noh;Bunraku;Rakugo;Kabuki
+2;Spicy rice cake with toppings?;Tteokbokki;Bulgogi;Bibimbap;Kimchi;Tteokbokki
+4;Leader advocating land and social reforms in early Vietnam?;Ho Chi Minh;Vo Nguyen Giap;Ngo Dinh Diem;Le Duan;Ho Chi Minh
+2;Who is the best father?;Thang;Jack 97;De Cao;Dat G;Jack 97

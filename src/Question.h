@@ -18,7 +18,7 @@ class Question
         struct Option
         {
             int level;
-            char question[200];
+            char question[500];
             char A[50];
             char B[50];
             char C[50];

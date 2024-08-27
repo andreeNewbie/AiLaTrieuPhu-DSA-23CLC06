@@ -11,7 +11,7 @@ PlayGame::PlayGame()
     exitButton.loadInfo("resources/graphics/exit-button.png", {1295, 0}, 0.25);
 
     game_background1.loadInfo("resources/graphics/background-gradient.png", {0, 0}, 0.7);
-    game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.73);
+    game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
     money.loadInfo("resources/graphics/money-tree.png", {1115, 545}, 0.4);
 
     help_phoneFriend.loadInfo("resources/graphics/lifeline-phone-a-friend.png", {1120, 630}, 0.482);
@@ -41,7 +41,7 @@ PlayGame::PlayGame()
     C_right.loadInfo("resources/graphics/correct-answer.png", {-40, 800}, 0.4);
     D_right.loadInfo("resources/graphics/correct-answer.png", {480, 800}, 0.4);
 
-    ScreenQuestion.loadInfo("resources/graphics/last-question.png", {15, 603}, 0.4);
+    ScreenQuestion.loadInfo("resources/graphics/last-question.png", {10, 583}, 0.51);
 
     gameStarted = false;
     correct = 1;
@@ -200,11 +200,7 @@ void PlayGame::ApplyPhoneFriendLifeline() {
     PlaySound(help_phoneFriend_sound);
 
     phoneFriend_used = true;
-    //phoneFriend_view.Draw();
-    //friendAns.Draw();
-    //DrawTextEx(font, finallyAnswer.c_str(), {10, 500}, 35, 2, WHITE);
-
-    //cout << finallyAnswer << endl << endl << endl;
+    game_background2.loadInfo("resources/graphics/output-onlinepngtools.png", {0, 0}, 0.42);
     showFriendAns = true;
 }
 
@@ -258,7 +254,7 @@ void PlayGame::Display()
         DrawTextEx(font, " 1. $500", {1120, 550}, 38, 2, BLACK);
     else DrawTextEx(font, " 1. $500", {1120, 550}, 38, 2, ORANGE);
 
-    DrawTextEx(font, ques.question, {75, 635}, 35, 2, WHITE);
+    DrawTextEx(font, ques.question, {100, 632}, 35, 2, WHITE);
 }
 
 void PlayGame::Handle()
@@ -348,9 +344,9 @@ void PlayGame::Handle()
     else    
         help_askAudience_used.Draw();
     if(showFriendAns) {
-        friendAns.Draw();
-        phoneFriend_view.Draw();
-        DrawTextEx(font, finallyAnswer.c_str(), {50, 500}, 35, 2, WHITE);
+        // friendAns.Draw();
+        // phoneFriend_view.Draw();
+        DrawTextEx(font, finallyAnswer.c_str(), {90, 350}, 40, 2, WHITE);
     }
 }
 
@@ -423,6 +419,7 @@ void PlayGame::RunGame()
         pressA = pressB = pressC = pressD = false;
         hideA = hideB = hideC = hideD = false;
         showFriendAns = false;
+        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
     }
 
     if (correct == 2) correct = 1; 
@@ -437,6 +434,7 @@ void PlayGame::RunGame()
         printA = printB = printC = printD = true;
         pressA = pressB = pressC = pressD = false;
         phoneFriend_used = help5050_used = askAudience_used = false;
+        game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
         showFriendAns = false;
 
         countQuestionCorrected = 0;
