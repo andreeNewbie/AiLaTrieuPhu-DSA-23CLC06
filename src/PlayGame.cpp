@@ -49,7 +49,7 @@ PlayGame::PlayGame()
 
     printA = printB = printC = printD = true;
     pressA = pressB = pressC = pressD = false;
-    showFriendAns = false;
+    showFriendAns = showAudienceResult = false;
     phoneFriend_used = help5050_used = askAudience_used = false;
 
     question = Question();
@@ -68,6 +68,7 @@ PlayGame::PlayGame()
     help_5050_sound = LoadSound("resources/sounds/lifeLine.mp3");
     help_phoneFriend_sound = LoadSound("resources/sounds/lifeLine.mp3");
     phone_ring = LoadSound("resources/sounds/NC.mp3");
+    askAudience_sound = LoadSound("resources/sounds/askAudience.mp3");
 }
 
 void PlayGame::StartGame()
@@ -229,7 +230,8 @@ void PlayGame::Handle()
         help_askAudience_used.Draw();
     if(showFriendAns)
         DrawTextEx(font, finallyAnswer.c_str(), {90, 350}, 40, 2, WHITE);
-
+    if(showAudienceResult)
+        DrawTextEx(font, askAudienceResult.c_str(), {90, 350}, 40, 2, WHITE);
 }
 
 void PlayGame::CheckAnswer()
@@ -304,7 +306,7 @@ void PlayGame::RunGame()
                 waitAndExecute(3);
             ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
             pressA = pressB = pressC = pressD = false;
-            showFriendAns = false;
+            showFriendAns = showAudienceResult = false;
             game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
             printA = printB = printC = printD = true;
         }
@@ -330,7 +332,7 @@ void PlayGame::RunGame()
         ques = question.RandomDrawbyRequireLevel(countQuestionCorrected + 1);
         musicStart = LoadMusicStream("resources/sounds/Winning1.mp3");
         game_background2.loadInfo("resources/graphics/background-game.png", {0, 0}, 0.83);
-        showFriendAns = false;
+        showFriendAns= showAudienceResult = false;
     }
 
     if ((pressA || pressB || pressC || pressD) && !check)
@@ -373,6 +375,12 @@ void PlayGame::RunGame()
         PlaySound(phone_ring);
         waitAndExecute(8);
         ApplyPhoneFriendLifeline();
+    }
+    if (help_askAudience.isPress(mousePosition, mousePressed) && !askAudience_used)
+    {
+        PlaySound(askAudience_sound);
+        waitAndExecute(6);
+        ApplyAskAudienceLifeline();
     }
 
 }
@@ -486,4 +494,68 @@ void PlayGame::ApplyPhoneFriendLifeline() {
     game_background2.loadInfo("resources/graphics/output-onlinepngtools.png", {0, 0}, 0.42);
     phoneFriend_used = true;
     showFriendAns = true;
+}
+
+void PlayGame::ApplyAskAudienceLifeline()
+{
+    if(askAudience_used) return;
+
+    askAudienceResult = "Ask the Audience Results: ";
+
+    vector<int> incorrectAnswer;
+    if(printA && strcmp(ques.A, ques.correctAnswer) != 0) incorrectAnswer.push_back(0);
+    if(printB && strcmp(ques.B, ques.correctAnswer) != 0) incorrectAnswer.push_back(1);
+    if(printC && strcmp(ques.C, ques.correctAnswer) != 0) incorrectAnswer.push_back(2);
+    if(printD && strcmp(ques.D, ques.correctAnswer) != 0) incorrectAnswer.push_back(3);
+
+    srand(static_cast<unsigned int>(time(0)));
+    int randomNumber = rand() % 101, randIndex = rand() % 3;
+    int correctIndex;
+    if(incorrectAnswer.size() > 2) correctIndex = abs(incorrectAnswer[0] + incorrectAnswer[1] +incorrectAnswer[2] - 6);
+    else correctIndex = 6 - incorrectAnswer[0] - !printB*1 - !printC*2 - !printD*3;
+    string percent[4] = {"0", "0", "0", "0"};
+
+    if(randomNumber > 91)
+    {
+        percent[incorrectAnswer[0]] = std::to_string(randomNumber);
+        percent[correctIndex] = std::to_string(100 - randomNumber);
+        if(incorrectAnswer.size() > 2)
+        {
+            percent[incorrectAnswer[randIndex]] = std::to_string(randomNumber - 20);
+            percent[incorrectAnswer[(randIndex + 1) % incorrectAnswer.size()]] = std::to_string(10 + correctIndex);
+            percent[incorrectAnswer[(randIndex + 2) % incorrectAnswer.size()]] = std::to_string(10 - correctIndex);
+        }
+    }
+    else if(randomNumber >= randIndex)
+    {
+        if(randomNumber < 50) randomNumber = 100 - randomNumber;
+
+        percent[correctIndex] = std::to_string(randomNumber);
+
+        if(incorrectAnswer.size() > 2)
+        {
+            int randomNumber2 = rand() % (96 - randomNumber), randomNumber3 = 100 - randomNumber - randomNumber2 - randIndex;
+            percent[++correctIndex % 4] = std::to_string(randomNumber2);
+            percent[++correctIndex % 4] = std::to_string(randomNumber3);
+            percent[++correctIndex % 4] = std::to_string(100 - randomNumber3 - randomNumber2 - randomNumber);
+            if(randomNumber2 > randomNumber) {
+                swap(percent[(correctIndex + 1) % 4], percent[(correctIndex + 2) % 4]);
+            }
+        }
+        else percent[incorrectAnswer[0]] = std::to_string(100 - randomNumber);
+    }
+    else
+    {
+        if(randomNumber < 50) randomNumber = 100 - randomNumber;
+
+        percent[correctIndex] = std::to_string(randomNumber);
+        percent[incorrectAnswer[0]] = std::to_string(100 - randomNumber);
+    }
+
+    askAudienceResult += "A: " + percent[0] + "% - B: " + percent[1] + "% - C: " + percent[2] + "% - D:" + percent[3] + "%";
+
+    PlaySound(help_5050_sound);
+    askAudience_used = true;
+    game_background2.loadInfo("resources/graphics/audience-support-background.png", {0, 0}, 0.42);
+    showAudienceResult = true;
 }

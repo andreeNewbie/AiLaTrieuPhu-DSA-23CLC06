@@ -33,11 +33,12 @@ class PlayGame
         int countQuestionCorrected;
         void Apply5050Lifeline();
         void ApplyPhoneFriendLifeline();
+        void ApplyAskAudienceLifeline();
     private:
         int handle;
         Sound correctAns, correctTarget, incorrect;
         Sound newQuestion, selectAnswer, win;
-        Sound help_5050_sound, help_phoneFriend_sound, phone_ring;
+        Sound help_5050_sound, help_phoneFriend_sound, phone_ring, askAudience_sound;
         Background background;
         Background logo;
         Button startButton, exitButton;
@@ -60,7 +61,8 @@ class PlayGame
 
         bool printA, printB, printC, printD;
         bool pressA, pressB, pressC, pressD;
-        bool showFriendAns;
-        string finallyAnswer;
         bool phoneFriend_used, help5050_used, askAudience_used;
+        bool showAudienceResult, showFriendAns;
+        string askAudienceResult, finallyAnswer;
+;
 };
