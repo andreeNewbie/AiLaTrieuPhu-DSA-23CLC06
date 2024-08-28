@@ -393,7 +393,6 @@ void PlayGame::RunGame()
         waitAndExecute(6);
         ApplyAskAudienceLifeline();
     }
-
 }
 
 void PlayGame::Apply5050Lifeline()
@@ -511,8 +510,6 @@ void PlayGame::ApplyPhoneFriendLifeline() {
 void PlayGame::ApplyAskAudienceLifeline()
 {
     if(askAudience_used) return;
-
-    //askAudienceResult = "Ask the Audience Results: ";
 
     vector<int> incorrectAnswer;
     if(printA && strcmp(ques.A, ques.correctAnswer) != 0) incorrectAnswer.push_back(0);
