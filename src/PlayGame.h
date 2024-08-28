@@ -37,7 +37,7 @@ class PlayGame
         int handle;
         Sound correctAns, correctTarget, incorrect;
         Sound newQuestion, selectAnswer, win;
-        Sound help_5050_sound, help_phoneFriend_sound;
+        Sound help_5050_sound, help_phoneFriend_sound, phone_ring;
         Background background;
         Background logo;
         Button startButton, exitButton;

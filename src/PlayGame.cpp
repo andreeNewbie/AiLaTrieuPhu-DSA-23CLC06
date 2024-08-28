@@ -67,6 +67,7 @@ PlayGame::PlayGame()
     win = LoadSound("resources/sounds/Winning.mp3");
     help_5050_sound = LoadSound("resources/sounds/lifeLine.mp3");
     help_phoneFriend_sound = LoadSound("resources/sounds/lifeLine.mp3");
+    phone_ring = LoadSound("resources/sounds/NC.mp3");
 }
 
 void PlayGame::StartGame()
@@ -367,8 +368,12 @@ void PlayGame::RunGame()
     }
     if (help_5050.isPress(mousePosition, mousePressed) && !help5050_used)
         Apply5050Lifeline();
-    if (help_phoneFriend.isPress(mousePosition, mousePressed) && !phoneFriend_used) 
+    if (help_phoneFriend.isPress(mousePosition, mousePressed) && !phoneFriend_used)
+    {
+        PlaySound(phone_ring);
+        waitAndExecute(8);
         ApplyPhoneFriendLifeline();
+    }
 
 }
 
