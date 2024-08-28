@@ -494,6 +494,7 @@ void PlayGame::ApplyPhoneFriendLifeline() {
     game_background2.loadInfo("resources/graphics/output-onlinepngtools.png", {0, 0}, 0.42);
     phoneFriend_used = true;
     showFriendAns = true;
+    showAudienceResult = false;
 }
 
 void PlayGame::ApplyAskAudienceLifeline()
@@ -535,9 +536,9 @@ void PlayGame::ApplyAskAudienceLifeline()
         if(incorrectAnswer.size() > 2)
         {
             int randomNumber2 = rand() % (96 - randomNumber), randomNumber3 = 100 - randomNumber - randomNumber2 - randIndex;
-            percent[++correctIndex % 4] = std::to_string(randomNumber2);
-            percent[++correctIndex % 4] = std::to_string(randomNumber3);
-            percent[++correctIndex % 4] = std::to_string(100 - randomNumber3 - randomNumber2 - randomNumber);
+            percent[++correctIndex % 4] = to_string(randomNumber2);
+            percent[++correctIndex % 4] = to_string(randomNumber3);
+            percent[++correctIndex % 4] = to_string(100 - randomNumber3 - randomNumber2 - randomNumber);
             if(randomNumber2 > randomNumber) {
                 swap(percent[(correctIndex + 1) % 4], percent[(correctIndex + 2) % 4]);
             }
@@ -558,4 +559,5 @@ void PlayGame::ApplyAskAudienceLifeline()
     askAudience_used = true;
     game_background2.loadInfo("resources/graphics/audience-support-background.png", {0, 0}, 0.42);
     showAudienceResult = true;
+    showFriendAns = false;
 }
