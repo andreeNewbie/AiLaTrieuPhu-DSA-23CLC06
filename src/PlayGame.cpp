@@ -344,9 +344,20 @@ void PlayGame::Handle()
     else    
         help_askAudience_used.Draw();
     if(showFriendAns) {
-        // friendAns.Draw();
-        // phoneFriend_view.Draw();
-        DrawTextEx(font, finallyAnswer.c_str(), {90, 350}, 40, 2, WHITE);
+        DrawTextEx(font, "You: Hi, I'm playing a game and need help. Can I call you?", {50, 250}, 40, 2, WHITE);
+        DrawTextEx(font, "Friend: Sure! What's the question?", {50, 280}, 40, 2, WHITE);
+        string question(ques.question);
+        question = "You: " + question + " Options are: ";
+        DrawTextEx(font, question.c_str(), {50, 310}, 40, 2, WHITE);
+        string optionA(ques.A), optionB(ques.B), optionC(ques.C), optionD(ques.D);
+        optionA = "A. " + optionA, optionB = "B. " + optionB, optionC = "C. " + optionC, optionD = "D. " + optionD;
+        DrawTextEx(font, optionA.c_str(), {50, 340}, 40, 2, WHITE);
+        DrawTextEx(font, optionB.c_str(), {50, 370}, 40, 2, WHITE);
+        DrawTextEx(font, optionC.c_str(), {50, 400}, 40, 2, WHITE);
+        DrawTextEx(font, optionD.c_str(), {50, 430}, 40, 2, WHITE);
+        DrawTextEx(font, finallyAnswer.c_str(), {50, 460}, 40, 2, WHITE);
+        DrawTextEx(font, "You: Thannks!", {50, 490}, 40, 2, WHITE);
+        DrawTextEx(font, "Friend: Good luck!", {50, 520}, 40, 2, WHITE);
     }
 }
 
