@@ -231,7 +231,7 @@ void PlayGame::Handle()
     if(showFriendAns)
         DrawTextEx(font, finallyAnswer.c_str(), {90, 350}, 40, 2, WHITE);
     if(showAudienceResult)
-        DrawTextEx(font, askAudienceResult.c_str(), {90, 350}, 40, 2, WHITE);
+        DrawTextEx(font, askAudienceResult.c_str(), {70, 350}, 40, 2, WHITE);
 }
 
 void PlayGame::CheckAnswer()
