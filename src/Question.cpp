@@ -93,7 +93,6 @@ int Question::Partition(int low, int high){
     return i+1;
 }
 
-
 void Question::QuickSort(int low, int high){
     if (low < high){
         int pivot = Partition(low, high);
@@ -103,9 +102,8 @@ void Question::QuickSort(int low, int high){
 }
 
 void Question::Sort() {
-    if (!QuestionBank.empty()) {
+    if (!QuestionBank.empty())
         QuickSort(0, QuestionBank.size() - 1);
-    }
 }
 
 

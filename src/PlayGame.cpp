@@ -230,8 +230,19 @@ void PlayGame::Handle()
         help_askAudience_used.Draw();
     if(showFriendAns)
         DrawTextEx(font, finallyAnswer.c_str(), {90, 350}, 40, 2, WHITE);
-    if(showAudienceResult)
-        DrawTextEx(font, askAudienceResult.c_str(), {70, 350}, 40, 2, WHITE);
+    if(showAudienceResult) {
+        stringstream ss(askAudienceResult);
+        string optionA, optionB, optionC, optionD;
+        getline(ss, optionA, '-');
+        getline(ss, optionB, '-');
+        getline(ss, optionC, '-');
+        getline(ss, optionD);
+        DrawTextEx(font, "Ask the Audience Results: ", {300, 200}, 40, 2, WHITE);
+        DrawTextEx(font, optionA.c_str(), {300, 270}, 40, 2, WHITE);
+        DrawTextEx(font, optionB.c_str(), {300, 330}, 40, 2, WHITE);
+        DrawTextEx(font, optionC.c_str(), {300, 390}, 40, 2, WHITE);
+        DrawTextEx(font, optionD.c_str(), {300, 450}, 40, 2, WHITE);
+    }
 }
 
 void PlayGame::CheckAnswer()
@@ -501,7 +512,7 @@ void PlayGame::ApplyAskAudienceLifeline()
 {
     if(askAudience_used) return;
 
-    askAudienceResult = "Ask the Audience Results: ";
+    //askAudienceResult = "Ask the Audience Results: ";
 
     vector<int> incorrectAnswer;
     if(printA && strcmp(ques.A, ques.correctAnswer) != 0) incorrectAnswer.push_back(0);
@@ -552,8 +563,8 @@ void PlayGame::ApplyAskAudienceLifeline()
         percent[correctIndex] = std::to_string(randomNumber);
         percent[incorrectAnswer[0]] = std::to_string(100 - randomNumber);
     }
-
-    askAudienceResult += "A: " + percent[0] + "% - B: " + percent[1] + "% - C: " + percent[2] + "% - D:" + percent[3] + "%";
+    string A = ques.A, B = ques.B, C = ques.C, D = ques.D;
+    askAudienceResult += A + ": " + percent[0] + "%-" + B + ": " + percent[1] + "%-" + C + ": " + percent[2] + "%-" + D + ": " + percent[3] + "%";
 
     PlaySound(help_5050_sound);
     askAudience_used = true;

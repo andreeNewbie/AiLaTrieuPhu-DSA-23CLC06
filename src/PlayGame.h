@@ -17,7 +17,6 @@ class PlayGame
 {
     public:
         PlayGame(); 
-        //~PlayGame();
         void StartGame();
         void RunGame();
         void Display();
@@ -64,5 +63,4 @@ class PlayGame
         bool phoneFriend_used, help5050_used, askAudience_used;
         bool showAudienceResult, showFriendAns;
         string askAudienceResult, finallyAnswer;
-;
 };
